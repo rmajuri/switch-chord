@@ -1,0 +1,1 @@
+//At each octave, the note multiplies by two. So I can turn the oscillators into dynamic functions, passing in arguments that increase or decrease accordingly, instead of hardcoding values into them.

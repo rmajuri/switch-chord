@@ -138,13 +138,28 @@ B4.type = 'square';
 B4.frequency.setValueAtTime(493.88, audioContext.currentTime); // value in hertz
 B4.connect(audioContext.destination);
 
-// C3 - 130.81
-// D3 - 146.83
-// E3 - 164.81
-// F3 - 174.61
-// G3 - 196.00
-// A3 - 220.00
-// B3 - 246.94
+//CHORD FUNCTIONS
 
+export const cMajorStart = () => {
+  C3.start()
+  E3.start()
+  G3.start()
+}
 
+export const cMajorStop = () => {
+  C3.stop()
+  E3.stop()
+  G3.stop()
+}
 
+export const aMinorStart = () => {
+  A2.start()
+  C3.start()
+  E3.start()
+}
+
+export const aMinorStop = () => {
+  A2.stop()
+  C3.stop()
+  E3.stop()
+}
