@@ -1,6 +1,7 @@
 import React from 'react'
 import cMajorScaleChords from '../chords.js'
 import Toggle from './Toggle'
+import RythmPlayer from './RythmPlayer'
 
 const AUDIO = document.createElement('audio')
 
@@ -24,8 +25,54 @@ export default class Switches extends React.Component {
     AUDIO.play()
     this.setState({
       currentSongId: song.id,
-      songIsPlaying: true,
-      songList
+      rythmPlaying: true,
+      rythmList
+    })
+  }
+  forward() {
+    const { songList, currentSongId } = this.state
+    const currentSongIdx = songList.map(song => song.id).indexOf(currentSongId)
+    const nextSongIdx = currentSongIdx + 1
+    if (nextSongIdx >= songList.length) {
+      AUDIO.pause()
+      AUDIO.src = ''
+      this.setState({
+        songIsPlaying: false,
+        currentSongId: 0,
+        songList: []
+      })
+    } else {
+      AUDIO.pause()
+      this.start(songList[nextSongIdx], songList)
+    }
+  }
+  backward() {
+    const { songList, currentSongId } = this.state
+    const currentSongIdx = songList.map(song => song.id).indexOf(currentSongId)
+    const nextSongIdx = currentSongIdx - 1
+    if (nextSongIdx < 0) {
+      AUDIO.pause()
+      AUDIO.src = ''
+      this.setState({
+        songIsPlaying: false,
+        currentSongId: 0,
+        songList: []
+      })
+    } else {
+      AUDIO.pause()
+      this.start(songList[nextSongIdx], songList)
+    }
+  }
+  pause() {
+    AUDIO.pause()
+    this.setState({
+      songIsPlaying: false
+    })
+  }
+  resume() {
+    AUDIO.play() 
+    this.setState({
+      songIsPlaying: true
     })
   }
 
@@ -62,8 +109,9 @@ export default class Switches extends React.Component {
     return (
       <div>
       <header>
-      <h1 className="triangle">CLICK-CHORD</h1>
+      <h1>CLICK-CHORD</h1>
       </header>
+      <RythmPlayer />
       <div className='main-switch-frame'>
         {
           CMajorScaleChordKeys.map(chord => {
