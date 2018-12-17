@@ -17,18 +17,15 @@ export default class Switches extends React.Component {
     }
 
     this.handleToggle = this.handleToggle.bind(this)
+    this.start = this.start.bind(this)
   }
 
-  start(song) {
-    AUDIO.src = song.audioUrl
+  start() {
+    AUDIO.src = "Bouncy.ogg"
     AUDIO.load()
     AUDIO.play()
-    this.setState({
-      currentSongId: song.id,
-      rythmPlaying: true,
-      rythmList
-    })
   }
+
   forward() {
     const { songList, currentSongId } = this.state
     const currentSongIdx = songList.map(song => song.id).indexOf(currentSongId)
@@ -63,18 +60,6 @@ export default class Switches extends React.Component {
       this.start(songList[nextSongIdx], songList)
     }
   }
-  pause() {
-    AUDIO.pause()
-    this.setState({
-      songIsPlaying: false
-    })
-  }
-  resume() {
-    AUDIO.play() 
-    this.setState({
-      songIsPlaying: true
-    })
-  }
 
   handleToggle(event, chord) {
     if (!this.state.currentChord) {
@@ -108,14 +93,12 @@ export default class Switches extends React.Component {
 
     return (
       <div>
-      <header>
       <h1>CLICK-CHORD</h1>
-      </header>
-      <RythmPlayer />
+      <RythmPlayer start={this.start} />
       <div className='main-switch-frame'>
         {
           CMajorScaleChordKeys.map(chord => {
-            return <Toggle key={chord} curentChord={this.state.currentChord} chordName={chord} handleToggle={this.handleToggle} />
+            return <Toggle key={chord} chordName={chord} handleToggle={this.handleToggle} />
           })
         }
       </div>
