@@ -1,13 +1,33 @@
 
-.blue {
-  background-color: aquamarine;
+.isPlaying {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  border: solid black;
+  margin-bottom: 15px;
+  background: 
+    radial-gradient(circle at 50% 0,
+      rgba(255,0,0,.5),
+      rgba(255,0,0,0) 70.71%),
+    radial-gradient(circle at 6.7% 75%,
+      rgba(0,0,255,.5),
+      rgba(0,0,255,0) 70.71%),
+    radial-gradient(circle at 93.3% 75%,
+      rgba(0,255,0,.5),
+      rgba(0,255,0,0) 70.71%) beige;
 }
 
 .main-switch-frame {
   width: 60%;
+  padding: 25px 25px;
   margin: 0 auto;
   position: relative;
-  top: 125px;
+  top: 100px;
+  display: flex;
+  align-content: flex-start;
+  justify-content: space-between;
+  flex-flow: row wrap;
 }
 
 .switch-container {
@@ -16,8 +36,68 @@
   height: 100px;
   text-align: center;
   border: solid black;
+  margin-bottom: 15px;
+  box-shadow: 5px 5px 8px #ff48c4, 10px 10px 8px #2bd1fc, 15px 15px 8px #f3ea5f, 20px 20px 8px #c04df9;
 }
 
-h6 {
-  margin: 10px 0 10px 0;
+h4 {
+  margin: 40px auto;
+  color: #ff48c4;
+}
+
+body {
+  background-color: #f3ea5f;
+}
+
+h1 {
+  text-align: center;
+  width: 100%;
+  font-family: 'Candal', sans-serif;
+  font-style: italic;
+  color: #2bd1fc;
+  text-shadow: -5px 10px 0px #ff48c4;
+  font-size: 50px;
+}
+
+#player-container {
+  position: fixed;
+  height: 56px;
+  width: 100%;
+  bottom: 0;
+}
+
+#player-controls {
+  background-color: #333;
+  box-shadow: 0px -2px 2px #5a5a5a;
+  height: 100%;
+}
+
+#player-controls > div {
+  height: 100%;
+  align-items: center;
+}
+
+#player-controls i {
+  font-size: 2em;
+  padding: 0 0.5em;
+}
+
+#player-controls i:nth-child(2) {
+  font-size: 3em;
+}
+
+i {
+  color: #c04df9;
+  font-size: 2em;
+}
+
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.center {
+  justify-content: center;
 }
