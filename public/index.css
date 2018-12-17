@@ -1,0 +1,23 @@
+
+.blue {
+  background-color: aquamarine;
+}
+
+.main-switch-frame {
+  width: 60%;
+  margin: 0 auto;
+  position: relative;
+  top: 125px;
+}
+
+.switch-container {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  border: solid black;
+}
+
+h6 {
+  margin: 10px 0 10px 0;
+}

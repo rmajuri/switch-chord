@@ -1,13 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
-import store from './store'
-import '../public/index.css'
+// import { Provider } from 'react-redux'
+// import store from './store'
+import Switches from './Components/Main'
 
 ReactDOM.render(
-  <Provider store={store}>
-    <div>Hello World!</div>
-  </Provider>
-  ,
+  <Switches />,
   document.getElementById('app')
 )
