@@ -8,6 +8,7 @@ class chordObj {
     this.notes.forEach((note, i) => {
       this['note' + i] = audioContext.createOscillator();
       this['note' + i].type = 'triangle'
+      this['note' + i].
       this['note' + i].frequency.setValueAtTime(note, audioContext.currentTime);
       this['note' + i].connect(audioContext.destination);
     })
