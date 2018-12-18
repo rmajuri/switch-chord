@@ -35,7 +35,7 @@ export default class Switches extends React.Component {
   forward() {
     const { rythmList } = this.state
     const next = rythmList.indexOf(this.state.currentRythm) + 1
-    if (next >= rythmList.length) {
+    if (next <= 0 || next >= rythmList.length) {
       AUDIO.pause()
       AUDIO.src = ''
       this.setState({
@@ -49,6 +49,7 @@ export default class Switches extends React.Component {
       AUDIO.play()
       this.setState({currentRythm: rythmList[next], rythmPlaying: true})
     }
+    console.log(next)
   }
 
   back() {
