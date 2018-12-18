@@ -11,9 +11,9 @@ export default class Switches extends React.Component {
 
     this.state = {
       currentChord: '',
-      currentRythmId: 0,
+      currentRythm: '',
       rythmPlaying: false,
-      rythmList: []
+      rythmList: ['club.ogg', 'mellow.ogg', 'oldschool.ogg', 'rock.ogg', 'roll.ogg', 'waltz.ogg']
     }
 
     this.handleToggle = this.handleToggle.bind(this)
@@ -21,43 +21,51 @@ export default class Switches extends React.Component {
   }
 
   start() {
-    AUDIO.src = "Bouncy.ogg"
-    AUDIO.load()
-    AUDIO.play()
+    const { rythmList } = this.state
+    if (!this.state.currentRythm.length) {
+      AUDIO.src = this.state.rythmList[0]
+      AUDIO.load()
+      AUDIO.play()
+      this.setState({currentRythm: rythmList[0], rythmPlaying: true})
+    }
   }
 
   forward() {
-    const { songList, currentSongId } = this.state
-    const currentSongIdx = songList.map(song => song.id).indexOf(currentSongId)
-    const nextSongIdx = currentSongIdx + 1
-    if (nextSongIdx >= songList.length) {
+    const { rythmList } = this.state
+    const next = rythmList.indexOf(this.state.currentRythm) + 1
+    if (next >= rythmList.length) {
       AUDIO.pause()
       AUDIO.src = ''
       this.setState({
-        songIsPlaying: false,
-        currentSongId: 0,
-        songList: []
+        rythmPlaying: false,
+        currentRythm: '',
       })
     } else {
+      this.setState({currentRythm: rythmList[next]})
       AUDIO.pause()
-      this.start(songList[nextSongIdx], songList)
+      AUDIO.src = rythmList[next]
+      AUDIO.load()
+      AUDIO.play()
+      this.setState({currentRythm: rythmList[next], rythmPlaying: true})
     }
   }
+
   backward() {
-    const { songList, currentSongId } = this.state
-    const currentSongIdx = songList.map(song => song.id).indexOf(currentSongId)
-    const nextSongIdx = currentSongIdx - 1
-    if (nextSongIdx < 0) {
+    const { rythmList } = this.state
+    const next = rythmList.indexOf(this.state.currentRythm) - 1
+    if (next < 0) {
       AUDIO.pause()
       AUDIO.src = ''
       this.setState({
-        songIsPlaying: false,
-        currentSongId: 0,
-        songList: []
+        rythmPlaying: false,
+        currentRythm: '',
       })
     } else {
       AUDIO.pause()
-      this.start(songList[nextSongIdx], songList)
+      AUDIO.src = rythmList[next]
+      AUDIO.load()
+      AUDIO.play()
+      this.start(rythmList[next])
     }
   }
 

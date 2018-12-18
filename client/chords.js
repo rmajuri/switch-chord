@@ -1,6 +1,5 @@
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
-
 class chordObj {
   constructor() {
     this.notes = [...arguments].slice(1)
@@ -11,7 +10,6 @@ class chordObj {
       this['note' + i].type = 'triangle'
       this['note' + i].frequency.setValueAtTime(note, audioContext.currentTime);
       this['note' + i].connect(audioContext.destination);
-      
     })
     this.notes.forEach((note, i) => {
       this['note' + i].start()
