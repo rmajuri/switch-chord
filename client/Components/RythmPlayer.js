@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function RythmPlayer (props) {
-  const { rythmPlaying, start, back, forward } = props
+  const { rythmPlaying, start, back, forward, pause } = props
   return (
   
   <div id='player-container'>
@@ -11,7 +11,7 @@ export default function RythmPlayer (props) {
         <i className='fa fa-step-backward' onClick={back} />
         <i
         className={rythmPlaying ? 'fa fa-pause-circle' : 'fa fa-play-circle'}
-        onClick={start}
+        onClick={rythmPlaying ? pause : start}
         />
         <i className='fa fa-step-forward' onClick={forward} />
     </div>

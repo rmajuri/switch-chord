@@ -20,11 +20,15 @@ export default class Switches extends React.Component {
     this.start = this.start.bind(this)
     this.forward = this.forward.bind(this)
     this.back = this.back.bind(this)
+    this.pause = this.pause.bind(this)
+    this.resume = this.resume.bind(this)
   }
 
   start() {
     const { rythmList } = this.state
-    if (!this.state.currentRythm.length) {
+    if (this.state.currentRythm.length && !this.state.rythmPlaying) {
+      this.resume()
+    } else if (!this.state.currentRythm.length) {
       AUDIO.src = this.state.rythmList[0]
       AUDIO.load()
       AUDIO.play()
@@ -70,6 +74,18 @@ export default class Switches extends React.Component {
       this.setState({currentRythm: rythmList[next], rythmPlaying: true})
     }
   }
+  pause(){
+    AUDIO.pause()
+    this.setState({
+      rythmPlaying: false
+    })
+  }
+  resume() {
+    AUDIO.play()
+    this.setState({
+      rythmPlaying: true
+    })
+  }
 
   handleToggle(event, chord) {
     if (!this.state.currentChord) {
@@ -109,6 +125,7 @@ export default class Switches extends React.Component {
       forward={this.forward}
       back={this.back}
       rythmPlaying={this.state.rythmPlaying}
+      pause={this.pause}
       />
       <div className='main-switch-frame'>
         {
@@ -116,6 +133,9 @@ export default class Switches extends React.Component {
             return <Toggle key={chord} chordName={chord} handleToggle={this.handleToggle} />
           })
         }
+      </div>
+      <div className='footer'>
+        <footer />
       </div>
       </div>
     )
