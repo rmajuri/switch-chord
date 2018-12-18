@@ -134,9 +134,6 @@ export default class Switches extends React.Component {
           })
         }
       </div>
-      <div className='footer'>
-        <footer />
-      </div>
       </div>
     )
   }

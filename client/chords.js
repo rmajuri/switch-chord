@@ -2,21 +2,16 @@ const audioContext = new (window.AudioContext || window.webkitAudioContext);
 
 class chordObj {
   constructor() {
-    this.notes = [...arguments].slice(1)
+    this.notes = [...arguments]
   }
   start() {
     this.notes.forEach((note, i) => {
       this['note' + i] = audioContext.createOscillator();
       this['note' + i].type = 'triangle'
-      this['note' + i].
       this['note' + i].frequency.setValueAtTime(note, audioContext.currentTime);
       this['note' + i].connect(audioContext.destination);
     })
     this.notes.forEach((note, i) => {
-      const gain = audioContext.createGain();
-      this['note' + i].connect(gain);
-      gain.connect(audioContext.destination);
-      gain.gain.value = 0.5;
       this['note' + i].start()
     })
   }
@@ -37,7 +32,7 @@ const bDim = new chordObj(123.47, 146.83, 174.61)
 const cMajorMaj7 = new chordObj(130.81, 164.81, 196.00, 246.94)
 const aMinor7 = new chordObj(110.00, 130.81, 164.81, 196.00)
 const fMajorMaj7 = new chordObj(87.307, 110.00, 130.81, 164.81)
-const gMajor7 = new chordObj(97.999, 123.47, 146.83, 220.00)
+const gMajor7 = new chordObj(97.999, 123.47, 146.83, 174.61)
 const dMinor7 = new chordObj(146.83, 174.61, 220.00, 261.63)
 const eMinor7 = new chordObj(82.407, 97.999, 123.47, 146.83)
 const cMajorAdd9 = new chordObj(130.81, 164.81, 196.00, 293.67)
