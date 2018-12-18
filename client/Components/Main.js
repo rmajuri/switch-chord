@@ -18,6 +18,8 @@ export default class Switches extends React.Component {
 
     this.handleToggle = this.handleToggle.bind(this)
     this.start = this.start.bind(this)
+    this.forward = this.forward.bind(this)
+    this.back = this.back.bind(this)
   }
 
   start() {
@@ -41,7 +43,6 @@ export default class Switches extends React.Component {
         currentRythm: '',
       })
     } else {
-      this.setState({currentRythm: rythmList[next]})
       AUDIO.pause()
       AUDIO.src = rythmList[next]
       AUDIO.load()
@@ -50,7 +51,7 @@ export default class Switches extends React.Component {
     }
   }
 
-  backward() {
+  back() {
     const { rythmList } = this.state
     const next = rythmList.indexOf(this.state.currentRythm) - 1
     if (next < 0) {
@@ -65,7 +66,7 @@ export default class Switches extends React.Component {
       AUDIO.src = rythmList[next]
       AUDIO.load()
       AUDIO.play()
-      this.start(rythmList[next])
+      this.setState({currentRythm: rythmList[next], rythmPlaying: true})
     }
   }
 
@@ -102,7 +103,12 @@ export default class Switches extends React.Component {
     return (
       <div>
       <h1>CLICK-CHORD</h1>
-      <RythmPlayer start={this.start} />
+      <RythmPlayer
+      start={this.start}
+      forward={this.forward}
+      back={this.back}
+      rythmPlaying={this.state.rythmPlaying}
+      />
       <div className='main-switch-frame'>
         {
           CMajorScaleChordKeys.map(chord => {
