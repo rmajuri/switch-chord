@@ -1,68 +1,110 @@
-const audioContext = new (window.AudioContext || window.webkitAudioContext);
+import Tone from 'tone'
 
 class chordObj {
   constructor() {
     this.notes = [...arguments]
+    this.chord = new Tone.PolySynth(4, Tone.Synth).toMaster();
   }
   start() {
-    this.notes.forEach((note, i) => {
-      this['note' + i] = audioContext.createOscillator();
-      this['note' + i].type = 'triangle'
-      this['note' + i].frequency.setValueAtTime(note, audioContext.currentTime);
-      this['note' + i].connect(audioContext.destination);
-    })
-    this.notes.forEach((note, i) => {
-      this['note' + i].start()
-    })
+    this.chord.triggerAttack(this.notes);
   }
    stop () {
-    this.notes.forEach((note, i) => {
-      this['note' + i].stop()
-    })
+     this.chord.triggerRelease(this.notes)
   }
 }
 
-const cMajor = new chordObj(130.81, 164.81, 196.00)
-const aMinor = new chordObj(110.00, 130.81, 164.81)
-const fMajor = new chordObj(87.307, 110.00, 130.81)
-const gMajor = new chordObj(97.999, 123.47, 146.83)
-const dMinor = new chordObj(146.83, 174.61, 220.00)
-const eMinor = new chordObj(82.407, 97.999, 123.47)
-const bDim = new chordObj(123.47, 146.83, 174.61)
-const cMajorMaj7 = new chordObj(130.81, 164.81, 196.00, 246.94)
-const aMinor7 = new chordObj(110.00, 130.81, 164.81, 196.00)
-const fMajorMaj7 = new chordObj(87.307, 110.00, 130.81, 164.81)
-const gMajor7 = new chordObj(97.999, 123.47, 146.83, 174.61)
-const dMinor7 = new chordObj(146.83, 174.61, 220.00, 261.63)
-const eMinor7 = new chordObj(82.407, 97.999, 123.47, 146.83)
-const cMajorAdd9 = new chordObj(130.81, 164.81, 196.00, 293.67)
-const gMajorAdd9 = new chordObj(97.999, 123.47, 146.83, 220.00)
-const fMajorAdd9 = new chordObj(87.307, 110.00, 130.81, 196.00)
-const aMinorAdd9 = new chordObj(110.00, 130.81, 164.81, 246.94)
-const eMinor6 = new chordObj(82.407, 97.999, 123.47, 130.81)
-const aMinor6 = new chordObj(110.00, 130.81, 164.81, 174.61)
+const cMajor = new chordObj("C3", "E3", "G3")
+const aMinor = new chordObj("A3", "C4", "E4")
+const fMajor = new chordObj("F3", "A3", "C4")
+const gMajor = new chordObj("G3", "B3", "D4")
+const dMinor = new chordObj("D3", "F3", "A3")
+const eMinor = new chordObj("E3", "G3", "B3")
+const bDim = new chordObj("B3", "D4", "F4")
+const bDim7 = new chordObj("B3", "D4", "F4", "A4")
+const cMajorMaj7 = new chordObj("C3", "E3", "G3", "B3")
+const cMajorMaj9 = new chordObj("C3", "E3", "G3", "B3", "D4")
+const aMinor7 = new chordObj("A3", "C4", "E4", "G4")
+const fMajorMaj7 = new chordObj("F3", "A3", "C4", "E4")
+const fMajorMaj9 = new chordObj("F3", "A3", "C4", "E4", "G4")
+const gMajor7 = new chordObj("G3", "B3", "D4", "F4")
+const dMinor7 = new chordObj("D3", "F3", "A3", "C4")
+const dMinor6 = new chordObj("D3", "F3", "A3", "B3")
+const dMinor9 = new chordObj("D3", "F3", "A3", "C4", "E4")
+const eMinor7 = new chordObj("E3", "G3", "B3", "D4")
+const eMinor9 = new chordObj("E3", "G3", "B3", "D4", "F4")
+const cMajorAdd9 = new chordObj("C3", "E3", "G3", "D4")
+const gMajorAdd9 = new chordObj("G3", "B3", "D4", "A4")
+const fMajorAdd9 = new chordObj("F3", "A3", "C4", "G4")
+const aMinor9 = new chordObj("A3", "C4", "E4", "G4", "B4")
+const eMinor6 = new chordObj("E3", "G3", "B3", "C4")
+const aMinor6 = new chordObj("A3", "C4", "E4", "F4")
+const C5 = new chordObj("C3", "G3")
+const D5 = new chordObj("D3", "A3")
+const E5 = new chordObj("E3", "B3")
+const F5 = new chordObj("F3", "C4")
+const G5 = new chordObj("G3", "D4")
+const A5 = new chordObj("A3", "E4")
+const cMajor6 = new chordObj("C3", "E3", "G3", "A3")
+const fMajor6 = new chordObj("F3", "A3", "C4", "D4")
+const gMajor6 = new chordObj("G3", "B3", "D4", "E4")
+const gMajor9 = new chordObj("G3", "B3", "D4", "F4", "A4")
+const dMinorAdd9 = new chordObj("D3", "F3", "A3", "E4")
+const eMinorAdd11 = new chordObj("E3", "G3", "B3", "A4")
+const aMinorAdd9 = new chordObj("A3", "C4", "E4", "B4")
+const cAug = new chordObj("C3", "E3", "G#")
+
+
+
 
 const cMajorScaleChords = {}
 
 cMajorScaleChords.C = cMajor
+cMajorScaleChords.C5 = C5
 cMajorScaleChords.CMaj7 = cMajorMaj7
+cMajorScaleChords.CMaj9 = cMajorMaj9
 cMajorScaleChords.Cadd9 = cMajorAdd9
+cMajorScaleChords.C6 = cMajor6
+
+
+cMajorScaleChords.D5 = D5
 cMajorScaleChords.Dm = dMinor
+cMajorScaleChords.Dm6 = dMinor6
 cMajorScaleChords.Dm7 = dMinor7
+cMajorScaleChords.Dm9 = dMinor9
+cMajorScaleChords.Dmadd9 = dMinorAdd9
+
+cMajorScaleChords.E5 = E5
 cMajorScaleChords.Em = eMinor
-cMajorScaleChords.Em7 = eMinor7
 cMajorScaleChords.Em6 = eMinor6
+cMajorScaleChords.Em7 = eMinor7
+cMajorScaleChords.Em9 = eMinor9
+cMajorScaleChords.Em11 = eMinorAdd11
+
+cMajorScaleChords.F5 = F5
 cMajorScaleChords.F = fMajor
 cMajorScaleChords.FMaj7 = fMajorMaj7
+cMajorScaleChords.FMaj9 = fMajorMaj9
 cMajorScaleChords.Fadd9 = fMajorAdd9
+cMajorScaleChords.F6 = fMajor6
+
+cMajorScaleChords.G5 = G5
 cMajorScaleChords.G = gMajor
 cMajorScaleChords.G7 = gMajor7
 cMajorScaleChords.Gadd9 = gMajorAdd9
+cMajorScaleChords.G6 = gMajor6
+cMajorScaleChords.G9 = gMajor9
+
+cMajorScaleChords.A5 = A5
 cMajorScaleChords.Am = aMinor
-cMajorScaleChords.Am7 = aMinor7
-cMajorScaleChords.Amadd9 = aMinorAdd9
-cMajorScaleChords.Bdim = bDim
 cMajorScaleChords.Am6 = aMinor6
+cMajorScaleChords.Am7 = aMinor7
+cMajorScaleChords.Am9 = aMinor9
+cMajorScaleChords.Amadd9 = aMinorAdd9
+
+cMajorScaleChords.Bdim = bDim
+cMajorScaleChords.Bdim7 = bDim7
+cMajorScaleChords.Caug = cAug
+
 
 export default cMajorScaleChords
 

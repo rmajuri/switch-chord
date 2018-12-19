@@ -10,8 +10,6 @@ module.exports = {
     },
     resolve: {
       extensions: [".js", ".jsx"],
-      root: __dirname + "/node_modules",
-      modules: ["tone/build/Tone.js"]
     },
     devtool: 'source-map',
     module: {

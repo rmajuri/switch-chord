@@ -2,6 +2,7 @@ import React from 'react'
 import cMajorScaleChords from '../chords.js'
 import Toggle from './Toggle'
 import RythmPlayer from './RythmPlayer'
+import Tone from 'tone'
 const AUDIO = document.createElement('audio')
 
 export default class Switches extends React.Component {
@@ -21,7 +22,6 @@ export default class Switches extends React.Component {
     this.back = this.back.bind(this)
     this.pause = this.pause.bind(this)
     this.resume = this.resume.bind(this)
-    this.c = this.c.bind(this)
   }
 
   start() {
@@ -112,13 +112,6 @@ export default class Switches extends React.Component {
       this.setState({currentChord: chord})
     }
   }
-
-  c() {
-    var polySynth = new Tone.PolySynth(4, Tone.Synth).toMaster();
-//play a chord
-    polySynth.triggerAttackRelease(["C4", "E4", "G4", "B4"], "2n");
-  }
-
 
   render() {
     console.log(this.state)
