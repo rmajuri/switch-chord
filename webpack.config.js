@@ -9,7 +9,9 @@ module.exports = {
       filename: 'bundle.js'
     },
     resolve: {
-      extensions: [".js", ".jsx"]
+      extensions: [".js", ".jsx"],
+      root: __dirname + "/node_modules",
+      modules: ["tone/build/Tone.js"]
     },
     devtool: 'source-map',
     module: {

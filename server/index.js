@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(morgan('dev'))
 
 app.use(express.static(path.join(__dirname, '..', 'public')))
-
+app.use('/tone', express.static(path.join(__dirname, '../node_modules/tone/build/Tone.js')))
 app.use('/api', require('./apiRoutes'))
 
 app.get('*', (req, res, next) => {
