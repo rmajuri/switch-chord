@@ -3,7 +3,6 @@ import cMajorScaleChords from '../chords.js'
 import Toggle from './Toggle'
 import RythmPlayer from './RythmPlayer'
 import Tone from 'tone'
-
 const AUDIO = document.createElement('audio')
 
 export default class Switches extends React.Component {
