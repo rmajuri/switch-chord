@@ -1,14 +1,21 @@
 const db = require('./db');
 
-// require each of your models here...
+const { Scale } = require("./scales");
+const { Chord } = require("./chords");
 
+// After you've required all of your models into this module, you should establish
+// associations (https://sequelize-guides.netlify.com/association-types/) between them here as well!
+// Example:
+//
+// Puppy.belongsTo(Owner)
+Scale.hasMany(Chord);
+Chord.belongsTo(Scale);
 
-// ...and give them some nice associations here!
-
-// ...exports
 module.exports = {
-  db
-  // Include your models in your module.exports as well!
-  // The seed file expects to find them there!
-
+  // Include your models in this exports object as well!
+  db,
+  Scale,
+  Chord
 };
+
+
