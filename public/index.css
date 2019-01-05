@@ -124,3 +124,9 @@ i.fa:hover {
   font-weight: normal;
   z-index: 2;
 }
+
+.rythm-maker {
+  height: 100px;
+  width: 70%;
+  margin: 0 auto;
+}

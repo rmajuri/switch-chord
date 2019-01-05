@@ -2,7 +2,8 @@ import React from 'react'
 import cMajorScaleChords from '../chords.js'
 import Toggle from './Toggle'
 import RythmPlayer from './RythmPlayer'
-import Tone from 'tone'
+// import RythmMaker from './RythmMaker'
+// import Tone from 'tone'
 const AUDIO = document.createElement('audio')
 
 export default class Switches extends React.Component {
@@ -95,7 +96,7 @@ export default class Switches extends React.Component {
       chordPlaying.className = 'isPlaying'
       this.setState({currentChord: chord})
     }
-    
+
     if (this.state.currentChord === chord) {
       cMajorScaleChords[chord].stop()
       const chordPlaying = document.getElementById(chord)
@@ -114,20 +115,13 @@ export default class Switches extends React.Component {
     }
   }
 
-  c() {
-    var synth = new Tone.Synth().toMaster();
-
-    //play a middle 'C' for the duration of an 8th note
-    synth.triggerAttackRelease("C4", "8n");
-  }
-
   render() {
     console.log(this.state)
     const CMajorScaleChordKeys = Object.keys(cMajorScaleChords)
 
     return (
       <div>
-      <h1 onClick={this.c}>CLICK-CHORD</h1>
+      <h1>CLICK-CHORD</h1>
       <RythmPlayer
       start={this.start}
       forward={this.forward}
