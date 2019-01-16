@@ -3,13 +3,13 @@ import Tone from 'tone'
 class chordObj {
   constructor() {
     this.notes = [...arguments]
-    this.chord = new Tone.PolySynth(4, Tone.Synth).toMaster();
+    this.synth = new Tone.PolySynth(4, Tone.Synth).toMaster();
   }
   start() {
-    this.chord.triggerAttack(this.notes);
+    this.synth.triggerAttack(this.notes);
   }
    stop () {
-     this.chord.triggerRelease(this.notes)
+    this.synth.triggerRelease(this.notes)
   }
 }
 
@@ -51,8 +51,6 @@ const gMajor9 = new chordObj("G3", "B3", "D4", "F4", "A4")
 const dMinorAdd9 = new chordObj("D3", "F3", "A3", "E4")
 const eMinorAdd11 = new chordObj("E3", "G3", "B3", "A4")
 const aMinorAdd9 = new chordObj("A3", "C4", "E4", "B4")
-
-
 
 
 

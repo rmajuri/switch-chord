@@ -2,8 +2,9 @@ import React from 'react'
 import cMajorScaleChords from '../chords.js'
 import Toggle from './Toggle'
 import RythmPlayer from './RythmPlayer'
-// import RythmMaker from './RythmMaker'
-// import Tone from 'tone'
+import RythmMaker from './RythmMaker.js';
+import Tone from 'tone'
+
 const AUDIO = document.createElement('audio')
 
 export default class Switches extends React.Component {
@@ -23,6 +24,7 @@ export default class Switches extends React.Component {
     this.back = this.back.bind(this)
     this.pause = this.pause.bind(this)
     this.resume = this.resume.bind(this)
+    this.sequencer = this.sequencer.bind(this)
   }
 
   start() {
@@ -115,6 +117,30 @@ export default class Switches extends React.Component {
     }
   }
 
+  sequencer() {
+    const kick = new Tone.Player("./kick-electro01.wav").toMaster();
+    const snare = new Tone.Player("./snare-lofi02.wav").toMaster();
+    let index = 0
+
+    Tone.Transport.scheduleRepeat(repeat, "8n");
+    Tone.Transport.start();
+
+    function repeat() {
+      let step = index % 8
+      let kickInputs = document.querySelector(`#kick${step}`)
+      console.log(kickInputs)
+      let snareInputs = document.querySelector(`#snare${step}`)
+      console.log(snareInputs)
+      if (kickInputs.checked) {
+        kick.start();
+      }
+      if (snareInputs.checked) {
+        snare.start();
+      }
+      index++;
+    }
+  }
+
   render() {
     console.log(this.state)
     const CMajorScaleChordKeys = Object.keys(cMajorScaleChords)
@@ -129,6 +155,7 @@ export default class Switches extends React.Component {
       rythmPlaying={this.state.rythmPlaying}
       pause={this.pause}
       />
+      <RythmMaker sequencer={this.sequencer} />
       <div className='main-switch-frame'>
         {
           CMajorScaleChordKeys.map(chord => {

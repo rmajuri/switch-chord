@@ -22,7 +22,7 @@
   padding: 25px;
   margin: 0 auto;
   position: relative;
-  top: 100px;
+  top: 20px;
   display: flex;
   align-content: flex-start;
   justify-content: space-between;
@@ -130,6 +130,28 @@ i.fa:hover {
   z-index: 2;
 }
 
+
+.rythm-maker {
+ background-color:  #2bd1fc;
+ height: 175px;
+ width: 70%;
+ margin: 100px auto 0;
+ position: relative;
+ display: flex;
+ flex-direction: column;
+ box-shadow: 5px 5px 8px #ff48c4;
+ align-items: center;
+ align-content: center;
+}
+
+.rythm-maker-header {
+  font-size: 2rem;
+  color: #EB219B;
+  text-shadow: -2px -2px 0 #FFBAF2;
+  margin-bottom: 10px;
+}
+
+
 @media (max-width: 500px) {
   .switch-container{
     width: 50px;
@@ -169,4 +191,5 @@ i.fa:hover {
   }
 
 }
+
 
