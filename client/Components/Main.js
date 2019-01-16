@@ -15,7 +15,8 @@ export default class Switches extends React.Component {
       currentChord: '',
       currentRythm: '',
       rythmPlaying: false,
-      rythmList: ['club.ogg', 'mellow.ogg', 'oldschool.ogg', 'rock.ogg', 'roll.ogg', 'waltz.ogg']
+      rythmList: ['club.ogg', 'mellow.ogg', 'oldschool.ogg', 'rock.ogg', 'roll.ogg', 'waltz.ogg'],
+      rythmComponent: 'player'
     }
 
     this.handleToggle = this.handleToggle.bind(this)
@@ -25,6 +26,16 @@ export default class Switches extends React.Component {
     this.pause = this.pause.bind(this)
     this.resume = this.resume.bind(this)
     this.sequencer = this.sequencer.bind(this)
+    this.togglePlayer = this.togglePlayer.bind(this)
+  }
+
+  togglePlayer() {
+    if (this.state.rythmComponent === 'player') {
+      this.setState({rythmComponent: 'maker'})
+    } else {
+      this.setState({rythmComponent: 'player'})
+    }
+
   }
 
   start() {
@@ -148,14 +159,16 @@ export default class Switches extends React.Component {
     return (
       <div>
       <h1>CLICK-CHORD</h1>
-      <RythmPlayer
+      <button className="rythm-button" onClick={this.togglePlayer}>Make Your Own Rythm!</button>
+      { this.state.rythmComponent === 'player' ? <RythmPlayer
       start={this.start}
       forward={this.forward}
       back={this.back}
       rythmPlaying={this.state.rythmPlaying}
       pause={this.pause}
-      />
+      /> :
       <RythmMaker sequencer={this.sequencer} />
+      }
       <div className='main-switch-frame'>
         {
           CMajorScaleChordKeys.map(chord => {
