@@ -172,6 +172,11 @@ export default class Switches extends React.Component {
     console.log(this.state)
     const majorScaleChordKeys = Object.keys(majorScaleChords[C])
     const rhytmButtonText = this.state.rhythmComponent === 'player' ? 'Make Your Own Rythm!' : 'Choose a Rhythm'
+    const keyChanger = (
+      this.props.currentKey ? <ChangeKey displayKey={this.props.currentKey} changeKey={this.changeKeyHandler} /> :
+      null
+    )
+
 
     return (
       <div>

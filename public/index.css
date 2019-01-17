@@ -259,7 +259,27 @@ i.fa:hover {
   color: #f3ea5f;
 }
 
+.change-key-container {
+  width: 100px;
+  height: 100px;
+  border: none;
+  position: fixed;
+  left: 50px;
+  top: 300px;
+  z-index: 10;
+  text-align: center;
+}
 
+i.fas {
+  cursor: pointer;
+  font-size: 4em;
+  transition: color 0.2s ease;
+  margin: 0;
+}
+
+i.fas:hover {
+  color: #ff3f3f;
+}
 
 @media (max-width: 500px) {
   .switch-container{
