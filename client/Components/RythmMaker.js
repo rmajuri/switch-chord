@@ -8,7 +8,7 @@ class RythmMaker extends Component {
   }
 
   componentDidMount() {
-    this.props.sequencer();
+    this.props.sequencer()
   }
 
   toggleCheckedColor(targetedInput) {
@@ -19,11 +19,6 @@ class RythmMaker extends Component {
       clickedDrum.className = "drum-checkbox-clicked";
     }
   }
-//   shouldComponentUpdate() {
-//     if (this.state.rythmMakerStarted) {
-//         return false
-//     }
-//   }
 
   render() {
     const drumSteps = new Array(8).fill("_");
@@ -33,12 +28,12 @@ class RythmMaker extends Component {
           <span
             key={"kick-span" + i}
             className="drum-checkbox"
-            id={"kick" + i + "span"}
+            id={"kick-span" + i}
           >
             <input
               type="checkbox"
               id={"kick" + i}
-              onClick={() => this.toggleCheckedColor("kick" + i + "span")}
+              onClick={() => this.toggleCheckedColor("kick-span" + i)}
             />
           </span>
         </label>
@@ -47,12 +42,34 @@ class RythmMaker extends Component {
     const snares = drumSteps.map((step, i) => {
       return (
         <label key={"snare-label" + i} className="check-container">
-          <span key={"snare-span" + i} className="drum-checkbox">
+          <span
+            key={"snare-span" + i}
+            className="drum-checkbox"
+            id={"snare-span" + i}
+          >
             <input
               type="checkbox"
-              key={"snare " + i}
+              key={"snare" + i}
               id={"snare" + i}
-              onClick={() => this.toggleCheckedColor("kick" + i + "span")}
+              onClick={() => this.toggleCheckedColor("snare-span" + i)}
+            />
+          </span>
+        </label>
+      );
+    });
+    const hats = drumSteps.map((step, i) => {
+      return (
+        <label key={"hat-label" + i} className="check-container">
+          <span
+            key={"hat-span" + i}
+            className="drum-checkbox"
+            id={"hat-span" + i}
+          >
+            <input
+              type="checkbox"
+              key={"hat" + i}
+              id={"hat" + i}
+              onClick={() => this.toggleCheckedColor("hat-span" + i)}
             />
           </span>
         </label>
@@ -63,8 +80,16 @@ class RythmMaker extends Component {
       <div className="rythm-maker">
         <h1 className="rythm-maker-header">Rythm Maker</h1>
         <div className="kick-container">
-          <div>{kicks}</div>
-          <div className="snare-container">{snares}</div>
+          <p className="drum-tag">Kick</p>
+          {kicks}
+        </div>
+        <div className="snare-container">
+          <p className="drum-tag">Snare</p>
+          {snares}
+        </div>
+        <div className="hat-container">
+          <p className="drum-tag">Hat</p>
+          {hats}
         </div>
       </div>
     );

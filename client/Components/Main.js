@@ -16,7 +16,7 @@ export default class Switches extends React.Component {
       currentRythm: '',
       rythmPlaying: false,
       rythmList: ['club.ogg', 'mellow.ogg', 'oldschool.ogg', 'rock.ogg', 'roll.ogg', 'waltz.ogg'],
-      rythmComponent: 'player'
+      rhythmComponent: 'player'
     }
 
     this.handleToggle = this.handleToggle.bind(this)
@@ -30,10 +30,10 @@ export default class Switches extends React.Component {
   }
 
   togglePlayer() {
-    if (this.state.rythmComponent === 'player') {
-      this.setState({rythmComponent: 'maker'})
+    if (this.state.rhythmComponent === 'player') {
+      this.setState({rhythmComponent: 'maker'})
     } else {
-      this.setState({rythmComponent: 'player'})
+      this.setState({rhythmComponent: 'player'})
     }
 
   }
@@ -129,8 +129,9 @@ export default class Switches extends React.Component {
   }
 
   sequencer() {
-    const kick = new Tone.Player("./kick-electro01.wav").toMaster();
-    const snare = new Tone.Player("./snare-lofi02.wav").toMaster();
+    const kick = new Tone.Player("./kick-deep.wav").toMaster();
+    const snare = new Tone.Player("./snare-analog.wav").toMaster();
+    const hat = new Tone.Player("./hihat-808.wav").toMaster();
     let index = 0
 
     Tone.Transport.scheduleRepeat(repeat, "8n");
@@ -142,11 +143,15 @@ export default class Switches extends React.Component {
       console.log(kickInputs)
       let snareInputs = document.querySelector(`#snare${step}`)
       console.log(snareInputs)
+      let hatInputs = document.querySelector(`#hat${step}`)
       if (kickInputs.checked) {
         kick.start();
       }
       if (snareInputs.checked) {
         snare.start();
+      }
+      if (hatInputs.checked) {
+        hat.start();
       }
       index++;
     }
@@ -155,12 +160,13 @@ export default class Switches extends React.Component {
   render() {
     console.log(this.state)
     const CMajorScaleChordKeys = Object.keys(cMajorScaleChords)
+    const rhytmButtonText = this.state.rhythmComponent === 'player' ? 'Make Your Own Rythm!' : 'Choose a Rhythm'
 
     return (
       <div>
       <h1>CLICK-CHORD</h1>
-      <button className="rythm-button" onClick={this.togglePlayer}>Make Your Own Rythm!</button>
-      { this.state.rythmComponent === 'player' ? <RythmPlayer
+      <button className="rythm-button" onClick={this.togglePlayer}>{rhytmButtonText}</button>
+      { this.state.rhythmComponent === 'player' ? <RythmPlayer
       start={this.start}
       forward={this.forward}
       back={this.back}

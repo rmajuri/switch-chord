@@ -132,7 +132,7 @@ i.fa:hover {
 
 
 .rythm-maker {
- height: 175px;
+ height: 225px;
  width: 70%;
  margin: 100px auto 0;
  position: relative;
@@ -140,16 +140,25 @@ i.fa:hover {
  flex-direction: column;
  background-color: #c04df9;
  box-shadow: 5px 5px 8px #ff48c4;
+
 }
 
 .snare-container {
   text-align: center;
   margin-top: 15px;
+  display: flex;
 }
 
 .kick-container {
   text-align: center;
-  margin-top: 55px;
+  margin-top: 65px;
+  display: flex;
+}
+
+.hat-container {
+  text-align: center;
+  margin-top: 15px;
+  display: flex;
 }
 
 .rythm-maker-header {
@@ -180,18 +189,6 @@ i.fa:hover {
 }
 
 
-/* input {
-  height: 26px;
-  width: 26px;
-  background-color: #f3ea5f;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-  background-color: #FFBAF2;
-  margin: 10px 30px;
-  position: relative; 
-  display: inline-block;
-} */
-
 .check-container input {
   opacity: 0;
   width: 0;
@@ -207,9 +204,10 @@ i.fa:hover {
 }
 
 .drum-checkbox {
-  background-color: #f3ea5f;
+  background-color: rgb(255,186,242, .6);
   position: absolute;
   cursor: pointer;
+  border: 1px solid gray;
   top: 0;
   left: 0;
   right: 0;
@@ -217,7 +215,7 @@ i.fa:hover {
 }
 
 .drum-checkbox-clicked {
-  background-color: #EB219B;
+  background-color: #f3ea5f;
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -236,8 +234,13 @@ i.fa:hover {
   border-radius: 2px;
 }
 
-
-
+.drum-tag {
+  font-family: monospace;
+  letter-spacing: .10rem;
+  width: 40px;
+  margin: 0 15px 0 25px;
+  color: #f3ea5f;
+}
 
 
 
