@@ -48,43 +48,44 @@ const dMinorAdd9 = new chordObj("D3", "F3", "A3", "E4")
 const aMinorAdd9 = new chordObj("A3", "C4", "E4", "B4")
 
 
-const cMajorScaleChords = {}
+const majorScaleChords = {}
+majorScaleChords.C = {}
 
-cMajorScaleChords.C = cMajor
-cMajorScaleChords.C5 = C5
-cMajorScaleChords.CMaj7 = cMajorMaj7
-cMajorScaleChords.CMaj9 = cMajorMaj9
-cMajorScaleChords.Cadd9 = cMajorAdd9
-cMajorScaleChords.C6 = cMajor6
-cMajorScaleChords.D5 = D5
-cMajorScaleChords.Dm = dMinor
-cMajorScaleChords.Dm7 = dMinor7
-cMajorScaleChords.Dm9 = dMinor9
-cMajorScaleChords.Dmadd9 = dMinorAdd9
-cMajorScaleChords.E5 = E5
-cMajorScaleChords.Em = eMinor
-cMajorScaleChords.Em7 = eMinor7
-cMajorScaleChords.Em9 = eMinor9
-cMajorScaleChords.F5 = F5
-cMajorScaleChords.F = fMajor
-cMajorScaleChords.FMaj7 = fMajorMaj7
-cMajorScaleChords.FMaj9 = fMajorMaj9
-cMajorScaleChords.Fadd9 = fMajorAdd9
-cMajorScaleChords.F6 = fMajor6
-cMajorScaleChords.G5 = G5
-cMajorScaleChords.G = gMajor
-cMajorScaleChords.G7 = gMajor7
-cMajorScaleChords.Gadd9 = gMajorAdd9
-cMajorScaleChords.G6 = gMajor6
-cMajorScaleChords.G9 = gMajor9
-cMajorScaleChords.A5 = A5
-cMajorScaleChords.Am = aMinor
-cMajorScaleChords.Am7 = aMinor7
-cMajorScaleChords.Am9 = aMinor9
-cMajorScaleChords.Amadd9 = aMinorAdd9
-cMajorScaleChords.Bdim = bDim
+majorScaleChords.C.C = cMajor
+majorScaleChords.C.C5 = C5
+majorScaleChords.C.CMaj7 = cMajorMaj7
+majorScaleChords.C.CMaj9 = cMajorMaj9
+majorScaleChords.C.Cadd9 = cMajorAdd9
+majorScaleChords.C.C6 = cMajor6
+majorScaleChords.C.D5 = D5
+majorScaleChords.C.Dm = dMinor
+majorScaleChords.C.Dm7 = dMinor7
+majorScaleChords.C.Dm9 = dMinor9
+majorScaleChords.C.Dmadd9 = dMinorAdd9
+majorScaleChords.C.E5 = E5
+majorScaleChords.C.Em = eMinor
+majorScaleChords.C.Em7 = eMinor7
+majorScaleChords.C.Em9 = eMinor9
+majorScaleChords.C.F5 = F5
+majorScaleChords.C.F = fMajor
+majorScaleChords.C.FMaj7 = fMajorMaj7
+majorScaleChords.C.FMaj9 = fMajorMaj9
+majorScaleChords.C.Fadd9 = fMajorAdd9
+majorScaleChords.C.F6 = fMajor6
+majorScaleChords.C.G5 = G5
+majorScaleChords.C.G = gMajor
+majorScaleChords.C.G7 = gMajor7
+majorScaleChords.C.Gadd9 = gMajorAdd9
+majorScaleChords.C.G6 = gMajor6
+majorScaleChords.C.G9 = gMajor9
+majorScaleChords.C.A5 = A5
+majorScaleChords.C.Am = aMinor
+majorScaleChords.C.Am7 = aMinor7
+majorScaleChords.C.Am9 = aMinor9
+majorScaleChords.C.Amadd9 = aMinorAdd9
+majorScaleChords.C.Bdim = bDim
 
 
 
-export default cMajorScaleChords
+export default majorScaleChords
 

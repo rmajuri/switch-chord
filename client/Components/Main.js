@@ -1,5 +1,5 @@
 import React from 'react'
-import cMajorScaleChords from '../chords.js'
+import majorScaleChords from '../chords.js'
 import Toggle from './Toggle'
 import RythmPlayer from './RythmPlayer'
 import RythmMaker from './RythmMaker.js';
@@ -106,24 +106,24 @@ export default class Switches extends React.Component {
 
   handleToggle(event, chord) {
     if (!this.state.currentChord) {
-      cMajorScaleChords[chord].start()
+      majorScaleChords[chord].start()
       const chordPlaying = document.getElementById(chord)
       chordPlaying.className = 'isPlaying'
       this.setState({currentChord: chord})
     }
 
     if (this.state.currentChord === chord) {
-      cMajorScaleChords[chord].stop()
+      majorScaleChords[chord].stop()
       const chordPlaying = document.getElementById(chord)
       chordPlaying.className = 'switch-container'
       this.setState({currentChord: ''})
     }
 
     if (this.state.currentChord && this.state.currentChord !== chord) {
-      cMajorScaleChords[this.state.currentChord].stop()
+      majorScaleChords[this.state.currentChord].stop()
       const chordPlaying = document.getElementById(this.state.currentChord)
       chordPlaying.className = 'switch-container'
-      cMajorScaleChords[chord].start()
+      majorScaleChords[chord].start()
       const newChord = document.getElementById(chord)
       newChord.className = 'isPlaying'
       this.setState({currentChord: chord})
@@ -170,7 +170,7 @@ export default class Switches extends React.Component {
 
   render() {
     console.log(this.state)
-    const CMajorScaleChordKeys = Object.keys(cMajorScaleChords)
+    const majorScaleChordKeys = Object.keys(majorScaleChords[C])
     const rhytmButtonText = this.state.rhythmComponent === 'player' ? 'Make Your Own Rythm!' : 'Choose a Rhythm'
 
     return (
@@ -194,7 +194,7 @@ export default class Switches extends React.Component {
       <div className='main-switch-frame'>
         <div className="switch-flex">
           {
-            CMajorScaleChordKeys.map(chord => {
+            majorScaleChordKeys.map(chord => {
               return <Toggle key={chord} chordName={chord} handleToggle={this.handleToggle} />
             })
           }
