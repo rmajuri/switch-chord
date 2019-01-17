@@ -8,7 +8,11 @@ class RythmMaker extends Component {
   }
 
   componentDidMount() {
-    this.props.sequencer()
+    this.props.startSequencer()
+  }
+
+  componentWillUnmount() {
+    this.props.stopSequencer()
   }
 
   toggleCheckedColor(targetedInput) {

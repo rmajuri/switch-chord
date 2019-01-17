@@ -16,7 +16,8 @@ export default class Switches extends React.Component {
       currentRythm: '',
       rythmPlaying: false,
       rythmList: ['club.ogg', 'mellow.ogg', 'oldschool.ogg', 'rock.ogg', 'roll.ogg', 'waltz.ogg'],
-      rhythmComponent: 'player'
+      rhythmComponent: 'player',
+      rhythmPlayerStarted: false
     }
 
     this.handleToggle = this.handleToggle.bind(this)
@@ -25,7 +26,8 @@ export default class Switches extends React.Component {
     this.back = this.back.bind(this)
     this.pause = this.pause.bind(this)
     this.resume = this.resume.bind(this)
-    this.sequencer = this.sequencer.bind(this)
+    this.startSequencer = this.startSequencer.bind(this)
+    this.stopSequencer = this.stopSequencer.bind(this)
     this.togglePlayer = this.togglePlayer.bind(this)
   }
 
@@ -128,14 +130,12 @@ export default class Switches extends React.Component {
     }
   }
 
-  sequencer() {
+  startSequencer() {
+    
     const kick = new Tone.Player("./kick-deep.wav").toMaster();
     const snare = new Tone.Player("./snare-analog.wav").toMaster();
     const hat = new Tone.Player("./hihat-808.wav").toMaster();
     let index = 0
-
-    Tone.Transport.scheduleRepeat(repeat, "8n");
-    Tone.Transport.start();
 
     function repeat() {
       let step = index % 8
@@ -155,6 +155,17 @@ export default class Switches extends React.Component {
       }
       index++;
     }
+
+      this.setState({rhythmPlayerStarted: true})
+      Tone.Transport.scheduleRepeat(repeat, "8n");
+      Tone.Transport.start()
+  }
+
+  stopSequencer() {
+    Tone.Transport.stop()
+    Tone.Transport.cancel()
+    Tone.Transport.clear()
+
   }
 
   render() {
@@ -173,14 +184,21 @@ export default class Switches extends React.Component {
       rythmPlaying={this.state.rythmPlaying}
       pause={this.pause}
       /> :
-      <RythmMaker sequencer={this.sequencer} />
+      <RythmMaker startSequencer={this.startSequencer}
+      stopSequencer={this.stopSequencer}
+      />
       }
+      <div style={{textAlign: 'center', margin: '25px auto 0'}}>
+      <h3 className="synth-header">SYNTH</h3>
+      </div>
       <div className='main-switch-frame'>
-        {
-          CMajorScaleChordKeys.map(chord => {
-            return <Toggle key={chord} chordName={chord} handleToggle={this.handleToggle} />
-          })
-        }
+        <div className="switch-flex">
+          {
+            CMajorScaleChordKeys.map(chord => {
+              return <Toggle key={chord} chordName={chord} handleToggle={this.handleToggle} />
+            })
+          }
+        </div>
       </div>
       </div>
     )

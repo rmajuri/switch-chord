@@ -1,7 +1,7 @@
 .isPlaying {
   display: inline-block;
-  width: 100px;
-  height: 100px;
+  width: 55px;
+  height: 55px;
   text-align: center;
   border: solid black;
   margin-bottom: 15px;
@@ -21,19 +21,24 @@
 
 .main-switch-frame {
   width: 60%;
-  padding: 25px;
+  padding: 15px;
   margin: 0 auto;
   display: flex;
-  align-content: flex-start;
+}
+
+.switch-flex {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  flex-flow: row wrap;
+
+
 }
 
 
 .switch-container {
   display: inline-block;
-  width: 100px;
-  height: 100px;
+  width: 55px;
+  height: 55px;
   text-align: center;
   background-color: white;
   border: solid black;
@@ -46,8 +51,10 @@
 }
 
 h4 {
-  margin: 40px auto;
+  margin: 20px auto;
   color: #ff48c4;
+  font-size: .8rem;
+  letter-spacing: .05rem;
 }
 
 body {
@@ -63,12 +70,21 @@ h1 {
   text-shadow: -5px 10px 0px #ff48c4;
   font-size: 50px;
   margin-bottom: 0;
+  letter-spacing: .10rem;
+}
+
+.synth-header {
+ font-family: 'Candal', sans-serif;
+ color: #ff48c4;
+ text-shadow: -2px 2px 0px #2bd1fc;
+ font-style: italic;
+ letter-spacing: .10rem;
 }
 
 #player-container {
   height: 56px;
   width: 70%;
-  margin: 0 auto 80px;
+  margin: 0 auto 100px;
 }
 
 #player-controls {
@@ -120,7 +136,7 @@ i.fa:hover {
 .rythm-player{
   font-family: 'Mr Dafoe', cursive;
   font-size: 45px;
-  margin: 0;
+  margin: 20px 30px -15px -30px;
   color: #EB219B;
   -webkit-text-fill-color: rgba(253, 90, 250, 1);
   text-shadow: -2px -2px 0 #FFBAF2;
@@ -186,6 +202,7 @@ i.fa:hover {
   height: 40px;
   color:  white;
   background-color:  rgb(255,186,242, .9);
+  z-index: 1000;
 }
 
 
