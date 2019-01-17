@@ -13,6 +13,8 @@ class chordObj {
   }
 }
 
+const majorScaleChords = {}
+
 const cMajor = new chordObj("C3", "E3", "G3")
 const aMinor = new chordObj("A3", "C4", "E4")
 const fMajor = new chordObj("F3", "A3", "C4")
@@ -48,7 +50,6 @@ const dMinorAdd9 = new chordObj("D3", "F3", "A3", "E4")
 const aMinorAdd9 = new chordObj("A3", "C4", "E4", "B4")
 
 
-const majorScaleChords = {}
 majorScaleChords.C = {}
 
 majorScaleChords.C.C = cMajor
@@ -86,7 +87,71 @@ majorScaleChords.C.Amadd9 = aMinorAdd9
 majorScaleChords.C.Bdim = bDim
 
 
+const DbMajor = new chordObj('Db3', 'F3', 'Ab3');
+const DbMajorMaj7 = new chordObj('Db3', 'F3', 'Ab3', 'C4');
+const DbMajorMaj9 = new chordObj('Db3', 'F3', 'Ab3',  'C4', 'Eb4');
+const DbMajorAdd9 = new chordObj('Db3', 'F3', 'Ab3', 'Eb4');
+const DbMajor6 = new chordObj('Db3', 'F3', 'Ab3', 'Bb3');
+const EbMinor = new chordObj('Eb3', 'Gb3', 'Bb3');
+const EbMinor7 = new chordObj('Eb3', 'Gb3', 'Bb3', 'Db4');
+const EbMinor9 = new chordObj('Eb3', 'Gb3', 'Bb3', 'Db4', 'F4');
+const FMinor = new chordObj('F3', 'Ab3', 'C4');
+const FMinor7 = new chordObj('F3', 'Ab3', 'C4', 'Eb4',);
+const FMinor9 = new chordObj('F3', 'Ab3', 'C4', 'Eb4', 'Gb4');
+const GbMajor = new chordObj('Gb3', 'Bb3', 'Db4');
+const GbMajorMaj7 = new chordObj('Gb3', 'Bb3', 'Db4', 'F4');
+const GbMajorMaj9 = new chordObj('Gb3', 'Bb3', 'Db4', 'F4', 'Ab4');
+const GbMajorAdd9 = new chordObj('Gb3', 'Bb3', 'Db4', 'Ab4');
+const GbMajor6 = new chordObj('Gb3', 'Bb3', 'Db4', 'Eb4');
+const AbMajor = new chordObj('Ab3', 'C4', 'Eb4',);
+const AbMajor7 = new chordObj('Ab3', 'C4', 'Eb4', 'Gb4');
+const AbMajorAdd9 = new chordObj('Ab3', 'C4', 'Eb4', 'Bb4');
+const AbMajor6 = new chordObj('Ab3', 'C4', 'Eb4', 'F4');
+const AbMajor9 = new chordObj('Ab3', 'C4', 'Gb4', 'Bb4');
+const BbMinor = new chordObj('Bb3', 'Db4', 'F4');
+const BbMinor7 = new chordObj('Bb3', 'Db4', 'F4', 'Ab4');
+const BbMinor9 = new chordObj('Bb3', 'Db4', 'F4', 'Ab4', 'C5');
+const cdim = new chordObj('C4', 'Eb4', 'Gb4');
+const Db5 = new chordObj('Db3', 'Ab3');
+const Eb5 = new chordObj('Eb3', 'Bb3');
+const Gb5 = new chordObj('F3', 'C4');
+const Ab5 = new chordObj('Ab3', 'Eb4');
+const Bb5 = new chordObj('Bb3', 'F4');
 
+
+majorScaleChords.Db = {}
+
+majorScaleChords.Db.Db = DbMajor
+majorScaleChords.Db.DbMajor7 = DbMajorMaj7
+majorScaleChords.Db.DbMajor9 = DbMajorMaj9
+majorScaleChords.Db.Dbadd9 = DbMajorAdd9
+majorScaleChords.Db.Db6 = DbMajor6
+majorScaleChords.Db.Ebm = EbMinor
+majorScaleChords.Db.Ebm7 = EbMinor7
+majorScaleChords.Db.Ebm9 = EbMinor9
+majorScaleChords.Db.Fm = FMinor
+majorScaleChords.Db.Fm7 = FMinor7
+majorScaleChords.Db.Fm9 = FMinor9
+majorScaleChords.Db.Gb = GbMajor
+majorScaleChords.Db.GbMaj7 = GbMajorMaj7
+majorScaleChords.Db.GbMaj9 = GbMajorMaj9
+majorScaleChords.Db.Gbadd9 = GbMajorAdd9
+majorScaleChords.Db.Gb6 = GbMajor6
+majorScaleChords.Db.Ab = AbMajor
+majorScaleChords.Db.Ab7 = AbMajor7
+majorScaleChords.Db.Abadd9 = AbMajorAdd9
+majorScaleChords.Db.Ab6 = AbMajor6
+majorScaleChords.Db.Ab9 = AbMajor9
+majorScaleChords.Db.Bbm = BbMinor
+majorScaleChords.Db.Bbm7 = BbMinor7
+majorScaleChords.Db.Bbm9 = BbMinor9
+majorScaleChords.Db.Cdim = cdim
+majorScaleChords.Db.Db5 = Db5
+majorScaleChords.Db.Eb5 = Eb5
+majorScaleChords.Db.Gb5 = Gb5
+majorScaleChords.Db.Ab5 = Ab5
+majorScaleChords.Db.Bb5 = Bb5
+majorScaleChords.Db.F5 = F5
 
 
 export default majorScaleChords
