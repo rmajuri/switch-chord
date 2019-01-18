@@ -1,12 +1,12 @@
 .isPlaying {
   display: inline-block;
-  width: 55px;
-  height: 55px;
+  width: 65px;
+  height: 65px;
   text-align: center;
   border: solid black;
   margin-bottom: 15px;
   font-family: monospace;
-  font-size: 1.25rem;
+  font-size: 10px;
   background: 
     radial-gradient(circle at 50% 0,
       rgba(255,72,196,.5),
@@ -37,8 +37,8 @@
 
 .switch-container {
   display: inline-block;
-  width: 55px;
-  height: 55px;
+  width: 65px;
+  height: 65px;
   text-align: center;
   background-color: white;
   border: solid black;
@@ -47,14 +47,13 @@
   font-family: monospace;
   font-kerning: normal;
   font-weight: lighter;
-  font-size: 1.25rem;
+  font-size: 10px;
 }
 
 h4 {
-  margin: 20px auto;
+  margin: 25px auto;
   color: #ff48c4;
-  font-size: .8rem;
-  letter-spacing: .05rem;
+  font-size: .7rem;
 }
 
 body {
@@ -71,6 +70,14 @@ h1 {
   font-size: 50px;
   margin-bottom: 0;
   letter-spacing: .10rem;
+}
+
+.chord-text {
+  font-size: 20px;
+  margin: 0;
+  letter-spacing: .1rem;
+  font-family: Candal, sans-serif;
+  text-shadow: -2px 2px 0px #2bd1fc;
 }
 
 .synth-header {
@@ -254,7 +261,7 @@ i.fa:hover {
 .drum-tag {
   font-family: monospace;
   letter-spacing: .10rem;
-  width: 40px;
+  width: 60px;
   margin: 0 15px 0 25px;
   color: #f3ea5f;
 }

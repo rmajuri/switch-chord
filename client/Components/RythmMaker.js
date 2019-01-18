@@ -92,7 +92,7 @@ class RythmMaker extends Component {
           {snares}
         </div>
         <div className="hat-container">
-          <p className="drum-tag">Hat</p>
+          <p className="drum-tag">Hi-Hat</p>
           {hats}
         </div>
       </div>

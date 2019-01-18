@@ -3,6 +3,7 @@ import majorScaleChords from '../chords.js'
 import Toggle from './Toggle'
 import RythmPlayer from './RythmPlayer'
 import RythmMaker from './RythmMaker.js';
+import ChangeKey from './ChangeKey'
 import Tone from 'tone'
 
 const AUDIO = document.createElement('audio')
@@ -12,6 +13,8 @@ export default class Switches extends React.Component {
     super()
 
     this.state = {
+      currentKey: 'C',
+      keyOptions: ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B'],
       currentChord: '',
       currentRythm: '',
       rythmPlaying: false,
@@ -29,6 +32,7 @@ export default class Switches extends React.Component {
     this.startSequencer = this.startSequencer.bind(this)
     this.stopSequencer = this.stopSequencer.bind(this)
     this.togglePlayer = this.togglePlayer.bind(this)
+    this.changeKeyHandler = this.changeKeyHandler.bind(this)
   }
 
   togglePlayer() {
@@ -106,24 +110,24 @@ export default class Switches extends React.Component {
 
   handleToggle(event, chord) {
     if (!this.state.currentChord) {
-      majorScaleChords[chord].start()
+      majorScaleChords[this.state.currentKey][chord].start()
       const chordPlaying = document.getElementById(chord)
       chordPlaying.className = 'isPlaying'
       this.setState({currentChord: chord})
     }
 
     if (this.state.currentChord === chord) {
-      majorScaleChords[chord].stop()
+      majorScaleChords[this.state.currentKey][chord].stop()
       const chordPlaying = document.getElementById(chord)
       chordPlaying.className = 'switch-container'
       this.setState({currentChord: ''})
     }
 
     if (this.state.currentChord && this.state.currentChord !== chord) {
-      majorScaleChords[this.state.currentChord].stop()
+      majorScaleChords[this.state.currentKey][this.state.currentChord].stop()
       const chordPlaying = document.getElementById(this.state.currentChord)
       chordPlaying.className = 'switch-container'
-      majorScaleChords[chord].start()
+      majorScaleChords[this.state.currentKey][chord].start()
       const newChord = document.getElementById(chord)
       newChord.className = 'isPlaying'
       this.setState({currentChord: chord})
@@ -165,18 +169,36 @@ export default class Switches extends React.Component {
     Tone.Transport.stop()
     Tone.Transport.cancel()
     Tone.Transport.clear()
+  }
 
+  changeKeyHandler(direction) {
+    let currentKeyIndex = this.state.keyOptions.indexOf(this.state.currentKey)
+    let nextKey
+    if (direction === 'up') {
+      if (this.state.keyOptions[currentKeyIndex + 1] === this.state.keyOptions.length) {
+        this.setState({currentKey: 'C'})
+      } else {
+        this.setState((state) => {
+          nextKey = state.keyOptions[currentKeyIndex + 1]
+          return {currentKey: nextKey}
+        })
+      }
+    } else {
+      if (this.state.keyOptions[currentKeyIndex - 1] < 0) {
+        this.setState({currentKey: 'B'})
+      } else {
+        this.setState((state) => {
+          nextKey = state.keyOptions[currentKeyIndex - 1]
+          return {currentKey: nextKey}
+        })
+      }
+    }
   }
 
   render() {
     console.log(this.state)
-    const majorScaleChordKeys = Object.keys(majorScaleChords[C])
+    const majorScaleChordKeys = Object.keys(majorScaleChords[this.state.currentKey])
     const rhytmButtonText = this.state.rhythmComponent === 'player' ? 'Make Your Own Rythm!' : 'Choose a Rhythm'
-    const keyChanger = (
-      this.props.currentKey ? <ChangeKey displayKey={this.props.currentKey} changeKey={this.changeKeyHandler} /> :
-      null
-    )
-
 
     return (
       <div>
@@ -193,6 +215,7 @@ export default class Switches extends React.Component {
       stopSequencer={this.stopSequencer}
       />
       }
+      <ChangeKey displayKey={this.state.currentKey} changeKey={this.changeKeyHandler} />
       <div style={{textAlign: 'center', margin: '25px auto 0'}}>
       <h3 className="synth-header">SYNTH</h3>
       </div>
