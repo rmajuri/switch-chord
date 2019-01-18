@@ -224,15 +224,13 @@ const EbMajorMaj7 = new chordObj("Eb3", "G3", "Bb3", "D4");
 const EbMajorMaj9 = new chordObj("Eb3", "G3", "Bb3", "D4", "F4");
 const EbMajorAdd9 = new chordObj("Eb3", "G3", "Bb3", "F4");
 const EbMajor6 = new chordObj("Eb3", "G3", "Bb3", "C4");
-
 const FMinorAdd9 = new chordObj("F3", "Ab3", "C4", "G4");
 const GMinor = new chordObj("G3", "Bb3", "D4");
 const GMinor7 = new chordObj("G3", "Bb3", "D4", "F4");
 const GMinor9 = new chordObj("G3", "Bb3", "D4", "F4", "Ab4");
-
+const GMinorAdd9 = new chordObj("G3", "Bb3", "D4", "A4");
 const AbMajorMaj7 = new chordObj("Ab3", "C4", "Eb4", "G4");
 const AbMajorMaj9 = new chordObj("Ab3", "C4", "Eb4", "G4", "Bb4");
-
 const BbMajor = new chordObj("Bb3", "D4", "F4");
 const BbMajor7 = new chordObj("Bb3", "D4", "F4", "Ab4");
 const BbMajor9 = new chordObj("Bb3", "D4", "F4", "Ab4", "C5");
@@ -343,18 +341,9 @@ const FMajorMaj7 = new chordObj("F3", "A3", "C4", "E4");
 const FMajorMaj9 = new chordObj("F3", "A3", "C4", "E4", "G4");
 const FMajorAdd9 = new chordObj("F3", "A3", "C4", "G4");
 const FMajor6 = new chordObj("F3", "A3", "C4", "D4");
-const GMinor = new chordObj("G3", "Bb3", "D4");
-const GMinor7 = new chordObj("G3", "Bb3", "D4", "F4");
-const GMinor9 = new chordObj("G3", "Bb3", "D4", "F4", "A4");
-const GMinorAdd9 = new chordObj("G3", "Bb3", "D4", "A4");
 const AMinor = new chordObj("A3", "C4", "E4");
 const AMinor7 = new chordObj("A3", "C4", "E4", "G4");
 const AMinor9 = new chordObj("A3", "C4", "E4", "G4", "B4");
-const BbMajor = new chordObj("Bb3", "D4", "F4");
-const BbMajorMaj7 = new chordObj("Bb3", "D4", "F4", "A4");
-const BbMajorMaj9 = new chordObj("Bb3", "D4", "F4", "A4", "C5");
-const BbMajor6 = new chordObj("Bb3", "D4", "F4", "G4");
-const BbMajorAdd9 = new chordObj("Bb3", "D4", "F4", "C5");
 const CMajor = new chordObj("C4", "E4", "G4");
 const CMajor7 = new chordObj("C4", "E4", "G4", "Bb4");
 const CMajorAdd9 = new chordObj("C4", "E4", "G4", "D5");
@@ -408,7 +397,6 @@ majorScaleChords.F.C5 = C5;
 majorScaleChords.F.D5 = D5;
 majorScaleChords.F.Edim = eDim;
 
-
 const GbMajor = new chordObj("Gb3", "Bb3", "Db4");
 const GbMajorMaj7 = new chordObj("Gb3", "Bb3", "Db4", "Gb4");
 const GbMajorMaj9 = new chordObj("Gb3", "Bb3", "Db4", "Gb4", "Ab4");
@@ -441,7 +429,7 @@ const Ab5 = new chordObj("Ab3", "Eb4");
 const Bb5 = new chordObj("Bb3", "F4");
 const B5 = new chordObj("B3", "Gb4");
 const Db5 = new chordObj("Db4", "Ab4");
-const Eb5 = new chordObj("Eb4", "Bb4")
+const Eb5 = new chordObj("Eb4", "Bb4");
 
 majorScaleChords.Gb = {};
 
@@ -479,7 +467,6 @@ majorScaleChords.Gb.Db5 = Db5;
 majorScaleChords.Gb.Eb5 = Eb5;
 majorScaleChords.Gb.Fdim = fDim;
 
-
 const GMajor = new chordObj("G3", "B3", "D4");
 const GMajorMaj7 = new chordObj("G3", "B3", "D4", "Gb4");
 const GMajorMaj9 = new chordObj("G3", "B3", "D4", "Gb4", "A4");
@@ -512,7 +499,7 @@ const A5 = new chordObj("A3", "E4");
 const B5 = new chordObj("B3", "Gb4");
 const C5 = new chordObj("C4", "G4");
 const D5 = new chordObj("D4", "A4");
-const E5 = new chordObj("E4", "B4")
+const E5 = new chordObj("E4", "B4");
 
 majorScaleChords.G = {};
 
@@ -550,11 +537,11 @@ majorScaleChords.G.D5 = D5;
 majorScaleChords.G.E5 = E5;
 majorScaleChords.G.Gbdim = gbDim;
 
-const AbMajor = new chordObj('Ab3', "C4", "Eb4");
-const AbMajorMaj7 = new chordObj('Ab3', "C4", "Eb4", "G4");
-const AbMajorMaj9 = new chordObj('Ab3', "C4", "Eb4", "G4", "Bb4");
-const AbMajorAdd9 = new chordObj('Ab3', "C4", "Eb4", "Bb4");
-const AbMajor6 = new chordObj('Ab3', "C4", "Eb4", "F4");
+const AbMajor = new chordObj("Ab3", "C4", "Eb4");
+const AbMajorMaj7 = new chordObj("Ab3", "C4", "Eb4", "G4");
+const AbMajorMaj9 = new chordObj("Ab3", "C4", "Eb4", "G4", "Bb4");
+const AbMajorAdd9 = new chordObj("Ab3", "C4", "Eb4", "Bb4");
+const AbMajor6 = new chordObj("Ab3", "C4", "Eb4", "F4");
 const BbMinor = new chordObj("Bb3", "Db4", "F4");
 const BbMinor7 = new chordObj("Bb3", "Db4", "F4", "Ab4");
 const BbMinor9 = new chordObj("Bb3", "Db4", "F4", "Ab4", "C5");
@@ -582,7 +569,7 @@ const Bb5 = new chordObj("Bb3", "F4");
 const C5 = new chordObj("C4", "G4");
 const Db5 = new chordObj("Db4", "Ab4");
 const Eb5 = new chordObj("Eb4", "Bb4");
-const F5 = new chordObj("F4", "C5")
+const F5 = new chordObj("F4", "C5");
 
 majorScaleChords.Ab = {};
 
@@ -620,17 +607,11 @@ majorScaleChords.Ab.Eb5 = Eb5;
 majorScaleChords.Ab.F5 = F5;
 majorScaleChords.Ab.Gdim = gDim;
 
-const AChords = ['A3', 'B3', 'Db4', 'D4', 'E4', 'Gb4', 'Ab4', 'A4', 'B4', 'Db5', 'D5', 'E5', 'Gb5', 'Ab5']
-await Promise.all(AChords.map(chord => Chord.create({
-  chordName: chord,
-    scaleId: A.id
-  })))
-
-const AMajor = new chordObj('A3', "Db4", "E4");
-const AMajorMaj7 = new chordObj('A3', "Db4", "E4", "Ab4");
-const AMajorMaj9 = new chordObj('A3', "Db4", "E4", "Ab", "B4");
-const AMajorAdd9 = new chordObj('A3', "Db4", "E4", "B4");
-const AMajor6 = new chordObj('A3', "Db4", "E4", "Gb4");
+const AMajor = new chordObj("A3", "Db4", "E4");
+const AMajorMaj7 = new chordObj("A3", "Db4", "E4", "Ab4");
+const AMajorMaj9 = new chordObj("A3", "Db4", "E4", "Ab", "B4");
+const AMajorAdd9 = new chordObj("A3", "Db4", "E4", "B4");
+const AMajor6 = new chordObj("A3", "Db4", "E4", "Gb4");
 const BMinor = new chordObj("B3", "D4", "Gb4");
 const BMinor7 = new chordObj("B3", "D4", "Gb4", "A4");
 const BMinor9 = new chordObj("B3", "D4", "Gb4", "A4", "Db5");
@@ -658,7 +639,7 @@ const B5 = new chordObj("B3", "Gb4");
 const Db5 = new chordObj("Db4", "Ab4");
 const D5 = new chordObj("D4", "A4");
 const E5 = new chordObj("E4", "B4");
-const Gb5 = new chordObj("Gb4", "Db4")
+const Gb5 = new chordObj("Gb4", "Db4");
 
 majorScaleChords.A = {};
 
@@ -697,11 +678,8 @@ majorScaleChords.A.Gb5 = Gb5;
 majorScaleChords.A.Abdim = abDim;
 
 
-const BbMajor = new chordObj('Bb3', "D4", "F4");
-const BbMajorMaj7 = new chordObj('Bb3', "D4", "F4", "A4");
-const BbMajorMaj9 = new chordObj('Bb3', "D4", "F4", "A4", "C5");
-const BbMajorAdd9 = new chordObj('Bb3', "D4", "F4", "C5");
-const BbMajor6 = new chordObj('Bb3', "D4", "F4", "G4");
+const BbMajorMaj7 = new chordObj("Bb3", "D4", "F4", "A4");
+const BbMajorMaj9 = new chordObj("Bb3", "D4", "F4", "A4", "C5");
 const CMinor = new chordObj("C4", "Eb4", "G4");
 const CMinor7 = new chordObj("C4", "Eb4", "G4", "Bb4");
 const CMinor9 = new chordObj("C4", "Eb4", "G4", "Bb4", "D5");
@@ -719,17 +697,13 @@ const FMajor7 = new chordObj("F4", "A4", "C5", "Eb5");
 const FMajorAdd9 = new chordObj("F4", "A4", "C5", "G5");
 const FMajor6 = new chordObj("F4", "A4", "C5", "D5");
 const FMajor9 = new chordObj("F4", "A4", "C5", "Eb5", "G5");
-const GMinor = new chordObj("G4", "Bb4", "D5");
-const GMinor7 = new chordObj("G4", "Bb4", "D5", "F5");
-const GMinor9 = new chordObj("G4", "Bb4", "D5", "F5", "A5");
-const GMinorAdd9 = new chordObj("G4", "Bb4", "D5", "A5");
 const aDim = new chordObj("A4", "C5", "Eb5");
 const Bb5 = new chordObj("Bb3", "F4");
 const C5 = new chordObj("C4", "G4");
 const D5 = new chordObj("D4", "A4");
 const Eb5 = new chordObj("Eb4", "Bb4");
 const F5 = new chordObj("F4", "C5");
-const G5 = new chordObj("G4", "D5")
+const G5 = new chordObj("G4", "D5");
 
 majorScaleChords.Bb = {};
 
@@ -767,34 +741,28 @@ majorScaleChords.Bb.F5 = F5;
 majorScaleChords.Bb.G5 = G5;
 majorScaleChords.Bb.Adim = aDim;
 
-const BChords = ['B2', 'Db3', 'Eb3', 'E3', 'Gb3', 'Ab3', 'Bb3', 'B3', 'Db4', 'Eb4', 'E4', 'Gb4', 'Ab4', 'Bb4']
-await Promise.all(BChords.map(chord => Chord.create({
-  chordName: chord,
-    scaleId: B.id
-  })))
-
-const BMajor = new chordObj('B2', "Eb3", "Gb3");
-const BMajorMaj7 = new chordObj('B2', "Eb3", "Gb3", "Bb3");
-const BMajorMaj9 = new chordObj('B2', "Eb3", "Gb3", "Bb3", "Db4");
-const BMajorAdd9 = new chordObj('B2', "Eb3", "Gb3", "Db4");
-const BMajor6 = new chordObj('B2', "Eb3", "Gb3", 'Ab3');
-const DbMinor = new chordObj('Db3', 'E3', 'Ab3');
-const DbMinor7 = new chordObj('Db3', 'E3', 'Ab3', "B3");
-const DbMinor9 = new chordObj('Db3', 'E3', 'Ab3', "B3", "Eb4");
-const DbMinorAdd9 = new chordObj('Db3', 'E3', 'Ab3', "Eb4");
-const EbMinor = new chordObj("Eb3", "Gb3", 'Bb3');
-const EbMinor7 = new chordObj("Eb3", "Gb3", 'Bb3', 'Db4');
-const EbMinor9 = new chordObj("Eb3", "Gb3", 'Bb3', 'Db4', "E4");
+const BMajor = new chordObj("B2", "Eb3", "Gb3");
+const BMajorMaj7 = new chordObj("B2", "Eb3", "Gb3", "Bb3");
+const BMajorMaj9 = new chordObj("B2", "Eb3", "Gb3", "Bb3", "Db4");
+const BMajorAdd9 = new chordObj("B2", "Eb3", "Gb3", "Db4");
+const BMajor6 = new chordObj("B2", "Eb3", "Gb3", "Ab3");
+const DbMinor = new chordObj("Db3", "E3", "Ab3");
+const DbMinor7 = new chordObj("Db3", "E3", "Ab3", "B3");
+const DbMinor9 = new chordObj("Db3", "E3", "Ab3", "B3", "Eb4");
+const DbMinorAdd9 = new chordObj("Db3", "E3", "Ab3", "Eb4");
+const EbMinor = new chordObj("Eb3", "Gb3", "Bb3");
+const EbMinor7 = new chordObj("Eb3", "Gb3", "Bb3", "Db4");
+const EbMinor9 = new chordObj("Eb3", "Gb3", "Bb3", "Db4", "E4");
 const EMajor = new chordObj("E3", "Ab3", "B3");
 const EMajorMaj7 = new chordObj("E3", "Ab3", "B3", "Eb4");
 const EMajorMaj9 = new chordObj("E3", "Ab3", "B3", "Eb4", "Gb4");
 const EMajor6 = new chordObj("E3", "Ab3", "B3", "Db4");
 const EMajorAdd9 = new chordObj("E3", "Ab3", "B3", "Gb4");
-const GbMajor = new chordObj('Gb3', 'Bb3', 'Db4');
-const GbMajor7 = new chordObj('Gb3', 'Bb3', 'Db4', "E4");
-const GbMajorAdd9 = new chordObj('Gb3', 'Bb3', 'Db4', "Ab4");
-const GbMajor6 = new chordObj('Gb3', 'Bb3', 'Db4', "Eb4");
-const GbMajor9 = new chordObj('Gb3', 'Bb3', 'Db4', "E4", "Ab4");
+const GbMajor = new chordObj("Gb3", "Bb3", "Db4");
+const GbMajor7 = new chordObj("Gb3", "Bb3", "Db4", "E4");
+const GbMajorAdd9 = new chordObj("Gb3", "Bb3", "Db4", "Ab4");
+const GbMajor6 = new chordObj("Gb3", "Bb3", "Db4", "Eb4");
+const GbMajor9 = new chordObj("Gb3", "Bb3", "Db4", "E4", "Ab4");
 const AbMinor = new chordObj("Ab3", "B3", "Eb4");
 const AbMinor7 = new chordObj("Ab3", "B3", "Eb4", "Gb4");
 const AbMinor9 = new chordObj("Ab3", "B3", "Eb4", "Gb4", "Bb4");
@@ -805,7 +773,7 @@ const Db5 = new chordObj("Db3", "Ab3");
 const Eb5 = new chordObj("Eb3", "Bb3");
 const E5 = new chordObj("E3", "B3");
 const Gb5 = new chordObj("Gb3", "Db4");
-const Ab5 = new chordObj("Ab3", "Eb4")
+const Ab5 = new chordObj("Ab3", "Eb4");
 
 majorScaleChords.B = {};
 
