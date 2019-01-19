@@ -17,6 +17,7 @@
     radial-gradient(circle at 93.3% 75%,
       rgba(243,234,95,.5),
       rgba(0,255,0,0) 70.71%) beige;
+  cursor: default;
 }
 
 .main-switch-frame {
@@ -48,12 +49,14 @@
   font-kerning: normal;
   font-weight: lighter;
   font-size: 10px;
+  cursor: default;
 }
 
 h4 {
-  margin: 25px auto;
+  margin: 5px auto 0;
   color: #ff48c4;
   font-size: .7rem;
+  cursor: default;
 }
 
 body {

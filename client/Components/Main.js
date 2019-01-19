@@ -20,7 +20,7 @@ export default class Switches extends React.Component {
       rythmPlaying: false,
       rythmList: ['club.ogg', 'mellow.ogg', 'oldschool.ogg', 'rock.ogg', 'roll.ogg', 'waltz.ogg'],
       rhythmComponent: 'player',
-      rhythmPlayerStarted: false
+      rhythmPlayerStarted: false,
     }
 
     this.handleToggle = this.handleToggle.bind(this)
@@ -172,10 +172,11 @@ export default class Switches extends React.Component {
   }
 
   changeKeyHandler(direction) {
+
     let currentKeyIndex = this.state.keyOptions.indexOf(this.state.currentKey)
     let nextKey
     if (direction === 'up') {
-      if (this.state.keyOptions[currentKeyIndex + 1] === this.state.keyOptions.length) {
+      if (currentKeyIndex + 1 === this.state.keyOptions.length) {
         this.setState({currentKey: 'C'})
       } else {
         this.setState((state) => {
@@ -184,7 +185,7 @@ export default class Switches extends React.Component {
         })
       }
     } else {
-      if (this.state.keyOptions[currentKeyIndex - 1] < 0) {
+      if (currentKeyIndex - 1 < 0) {
         this.setState({currentKey: 'B'})
       } else {
         this.setState((state) => {
