@@ -72,7 +72,6 @@ export default class Switches extends React.Component {
       AUDIO.load()
       AUDIO.play()
       this.setState({currentRythm: rythmList[next], rythmPlaying: true})
-      this.c = this.c.bind(this)
     }
     console.log(next)
   }
@@ -172,7 +171,12 @@ export default class Switches extends React.Component {
   }
 
   changeKeyHandler(direction) {
-
+    if (this.state.currentChord) {
+      majorScaleChords[this.state.currentKey][this.state.currentChord].stop()
+      const chordPlaying = document.getElementById(this.state.currentChord)
+      chordPlaying.className = 'switch-container'
+      this.setState({currentChord: ''})
+    }
     let currentKeyIndex = this.state.keyOptions.indexOf(this.state.currentKey)
     let nextKey
     if (direction === 'up') {
@@ -200,7 +204,7 @@ export default class Switches extends React.Component {
     console.log(this.state)
     const majorScaleChordKeys = Object.keys(majorScaleChords[this.state.currentKey])
     const rhytmButtonText = this.state.rhythmComponent === 'player' ? 'Make Your Own Rythm!' : 'Choose a Rhythm'
-
+    
     return (
       <div>
       <h1>CLICK-CHORD</h1>
