@@ -138,15 +138,15 @@ export default class Switches extends React.Component {
     const kick = new Tone.Player("./kick-deep.wav").toMaster();
     const snare = new Tone.Player("./snare-analog.wav").toMaster();
     const hat = new Tone.Player("./hihat-808.wav").toMaster();
+    const crash = new Tone.Player("./crash-noise.wav").toMaster();
     let index = 0
 
     function repeat() {
       let step = index % count
       let kickInputs = document.querySelector(`#kick${step}`)
-      console.log(kickInputs)
       let snareInputs = document.querySelector(`#snare${step}`)
-      console.log(snareInputs)
       let hatInputs = document.querySelector(`#hat${step}`)
+      let crashInputs = document.querySelector(`#crash${step}`)
       if (kickInputs.checked) {
         kick.start();
       }
@@ -155,6 +155,9 @@ export default class Switches extends React.Component {
       }
       if (hatInputs.checked) {
         hat.start();
+      }
+      if (crashInputs.checked) {
+        crash.start();
       }
       index++;
     }

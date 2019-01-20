@@ -23,6 +23,7 @@ class RythmMaker extends Component {
     if (count !== this.state.timeCount) {
       this.props.stopSequencer()
       this.setState({timeCount: count})
+
       this.props.startSequencer(count)
     }
   }
@@ -93,12 +94,32 @@ class RythmMaker extends Component {
         </label>
       );
     });
+    const crash = drumSteps.map((step, i) => {
+      return (
+        <label key={"crash-label" + i} className="check-container">
+          <span
+            key={"crash-span" + i}
+            className="drum-checkbox"
+            id={"crash-span" + i}
+          >
+            <input
+              type="checkbox"
+              key={"crash" + i}
+              id={"crash" + i}
+              onClick={() => this.toggleCheckedColor("crash-span" + i)}
+            />
+          </span>
+        </label>
+      );
+    });
 
     return (
       <div className="rythm-maker">
         <h1 className="rythm-maker-header">Rythm Maker</h1>
-        <button onClick={() => this.changeTimeCount(8)}>4/4</button>
-        <button onClick={() => this.changeTimeCount(6)}>6/8</button>
+        <div className='time-button-container'>
+        <button className='time-count-button' onClick={() => this.changeTimeCount(8)}>4/4</button>
+        <button className='time-count-button' onClick={() => this.changeTimeCount(6)}>6/8</button>
+        </div>
         <div className="kick-container">
           <p className="drum-tag">Kick</p>
           {kicks}
@@ -110,6 +131,10 @@ class RythmMaker extends Component {
         <div className="hat-container">
           <p className="drum-tag">Hi-Hat</p>
           {hats}
+        </div>
+        <div className="crash-container">
+          <p className="drum-tag">Crash</p>
+          {crash}
         </div>
       </div>
     );

@@ -1,18 +1,35 @@
 import Tone from "tone";
 const synth = new Tone.PolySynth(6, Tone.AMSynth).toMaster();
+// class chordObj {
+//   constructor() {
+//     this.notes = [...arguments];
+//   }
+//   start() {
+
+//     console.log(this.notes)
+//     synth.triggerAttack(this.notes, null);
+    
+//   }
+//   stop() {
+//     synth.triggerRelease(this.notes);
+    
+//   }
+// }
 class chordObj {
   constructor() {
     this.notes = [...arguments];
   }
   start() {
 
-    console.log(this.notes)
-    synth.triggerAttack(this.notes, null);
+    this.notes.forEach(note => {
+      synth.triggerAttack(note);
+    })
     
   }
   stop() {
-    synth.triggerRelease(this.notes);
-    
+    this.notes.forEach(note => {
+      synth.triggerRelease(note);
+    })
   }
 }
 
