@@ -1,5 +1,6 @@
 import React from 'react'
-import majorScaleChords from '../chords.js'
+import {majorScaleChords, buildChords} from '../chords.js'
+import ChangeSynthTexture from './ChangeSynthTexture'
 import Toggle from './Toggle'
 import RythmPlayer from './RythmPlayer'
 import RythmMaker from './RythmMaker.js';
@@ -13,7 +14,8 @@ export default class Switches extends React.Component {
     super()
 
     this.state = {
-      currentKey: 'C',
+      currentTexture: '',
+      currentKey: '',
       keyOptions: ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B'],
       currentChord: '',
       currentRythm: '',
@@ -33,6 +35,22 @@ export default class Switches extends React.Component {
     this.stopSequencer = this.stopSequencer.bind(this)
     this.togglePlayer = this.togglePlayer.bind(this)
     this.changeKeyHandler = this.changeKeyHandler.bind(this)
+    this.changeTexture = this.changeTexture.bind(this)
+  }
+
+  componentDidMount() {
+    buildChords('Synth')
+    this.setState({
+      currentTexture: 'Synth',
+      currentKey: 'C'
+    })
+  }
+
+  changeTexture(synthTexture) {
+    if (!this.currentChord && this.currentTexture !== synthTexture) {
+      buildChords(synthTexture)
+      this.setState({currentTexture: synthTexture})
+    }
   }
 
   togglePlayer() {
@@ -204,11 +222,15 @@ export default class Switches extends React.Component {
   }
 
   render() {
+    let majorScaleChordKeys
     console.log(this.state)
-    const majorScaleChordKeys = Object.keys(majorScaleChords[this.state.currentKey])
+    if (Object.keys(majorScaleChords).length) {
+      majorScaleChordKeys = Object.keys(majorScaleChords[this.state.currentKey])
+    }
     const rhytmButtonText = this.state.rhythmComponent === 'player' ? 'Make Your Own Rythm!' : 'Choose a Rhythm'
     
     return (
+      Object.keys(majorScaleChords).length ?
       <div>
       <h1>CLICK-CHORD</h1>
       <button className="rythm-button" onClick={this.togglePlayer}>{rhytmButtonText}</button>
@@ -224,19 +246,21 @@ export default class Switches extends React.Component {
       />
       }
       <ChangeKey displayKey={this.state.currentKey} changeKey={this.changeKeyHandler} />
+      <ChangeSynthTexture changeTexture={this.changeTexture} />
       <div style={{textAlign: 'center', margin: '25px auto 0'}}>
       <h3 className="synth-header">SYNTH</h3>
       </div>
       <div className='main-switch-frame'>
         <div className="switch-flex">
-          {
+          { 
             majorScaleChordKeys.map(chord => {
               return <Toggle key={chord} chordName={chord} handleToggle={this.handleToggle} />
             })
+    
           }
         </div>
       </div>
-      </div>
+      </div> : null
     )
   }
 }
