@@ -1,5 +1,6 @@
 import Tone from "tone";
 let synth 
+
 export const majorScaleChords = {};
 
 export function buildChords(synthTexture) {
@@ -10,18 +11,15 @@ export function buildChords(synthTexture) {
       this.notes = [...arguments];
     }
     start() {
-  
- 
-      synth.triggerAttack(this.notes);
-      this.notes.forEach(notes => {
+      console.log(this.notes)
+      this.notes.forEach(note => {
         synth.triggerAttack(note)
       })
       
     }
     stop() {
-      synth.triggerAttack(this.notes);
-      this.notes.forEach(notes => {
-        synth.triggerRelese(note)
+      this.notes.forEach(note => {
+        synth.triggerRelease(note)
       })
       
     }
