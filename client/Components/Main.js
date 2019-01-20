@@ -133,7 +133,7 @@ export default class Switches extends React.Component {
     }
   }
 
-  startSequencer() {
+  startSequencer(count) {
     
     const kick = new Tone.Player("./kick-deep.wav").toMaster();
     const snare = new Tone.Player("./snare-analog.wav").toMaster();
@@ -141,7 +141,7 @@ export default class Switches extends React.Component {
     let index = 0
 
     function repeat() {
-      let step = index % 8
+      let step = index % count
       let kickInputs = document.querySelector(`#kick${step}`)
       console.log(kickInputs)
       let snareInputs = document.querySelector(`#snare${step}`)
@@ -160,7 +160,7 @@ export default class Switches extends React.Component {
     }
 
       this.setState({rhythmPlayerStarted: true})
-      Tone.Transport.scheduleRepeat(repeat, "8n");
+      Tone.Transport.scheduleRepeat(repeat, `${count}n`);
       Tone.Transport.start()
   }
 

@@ -3,17 +3,31 @@ import React, { Component } from "react";
 class RythmMaker extends Component {
   constructor() {
     super();
-
+    this.state = {
+      timeCount: null
+    }
     this.toggleCheckedColor = this.toggleCheckedColor.bind(this);
+    this.changeTimeCount = this.changeTimeCount.bind(this);
   }
 
   componentDidMount() {
-    this.props.startSequencer()
+    this.setState({timeCount: 8})
+    this.props.startSequencer(8)
   }
 
   componentWillUnmount() {
     this.props.stopSequencer()
   }
+
+  changeTimeCount(count) {
+    if (count !== this.state.timeCount) {
+      this.props.stopSequencer()
+      this.setState({timeCount: count})
+      this.props.startSequencer(count)
+    }
+  }
+
+  
 
   toggleCheckedColor(targetedInput) {
     const clickedDrum = document.querySelector(`#${targetedInput}`);
@@ -25,7 +39,7 @@ class RythmMaker extends Component {
   }
 
   render() {
-    const drumSteps = new Array(8).fill("_");
+    const drumSteps = new Array(this.state.timeCount).fill("_");
     const kicks = drumSteps.map((step, i) => {
       return (
         <label key={"kick-label" + i} className="check-container">
@@ -83,6 +97,8 @@ class RythmMaker extends Component {
     return (
       <div className="rythm-maker">
         <h1 className="rythm-maker-header">Rythm Maker</h1>
+        <button onClick={() => this.changeTimeCount(8)}>4/4</button>
+        <button onClick={() => this.changeTimeCount(6)}>6/8</button>
         <div className="kick-container">
           <p className="drum-tag">Kick</p>
           {kicks}
