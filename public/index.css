@@ -81,6 +81,7 @@ h1 {
   letter-spacing: .1rem;
   font-family: Candal, sans-serif;
   text-shadow: -2px 2px 0px #2bd1fc;
+  color: #ff48c4;
 }
 
 .synth-header {
@@ -291,8 +292,13 @@ i.fa:hover {
 }
 
 .synth-option {
+  margin: 10px 0;
   font-family: monospace;
+  font-size: 1rem;
   cursor: default;
+  background-color:  rgb(255,186,242, .9);
+  box-shadow: 2px 2px 6px #2bd1fc;
+
 }
 
 i.fas {

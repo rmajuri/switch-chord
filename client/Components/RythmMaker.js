@@ -3,7 +3,6 @@ import React, { Component } from "react";
 class RythmMaker extends Component {
   constructor() {
     super();
-
     this.toggleCheckedColor = this.toggleCheckedColor.bind(this);
   }
 
@@ -25,7 +24,7 @@ class RythmMaker extends Component {
   }
 
   render() {
-    const drumSteps = new Array(8).fill("_");
+    const drumSteps = new Array(this.state.timeCount).fill("_");
     const kicks = drumSteps.map((step, i) => {
       return (
         <label key={"kick-label" + i} className="check-container">
