@@ -280,6 +280,21 @@ i.fa:hover {
   text-align: center;
 }
 
+.change-synth-container {
+  width: 100px;
+  border: none;
+  position: fixed;
+  right: 50px;
+  top: 300px;
+  z-index: 3000;
+  text-align: center;
+}
+
+.synth-option {
+  font-family: monospace;
+  cursor: default;
+}
+
 i.fas {
   cursor: pointer;
   font-size: 4em;

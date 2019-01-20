@@ -1,22 +1,26 @@
 import Tone from "tone";
-const synth = new Tone.PolySynth(6, Tone.AMSynth).toMaster();
-class chordObj {
-  constructor() {
-    this.notes = [...arguments];
-  }
-  start() {
+let synth 
+export const majorScaleChords = {};
 
-    console.log(this.notes)
-    synth.triggerAttack(this.notes, null);
-    
-  }
-  stop() {
-    synth.triggerRelease(this.notes);
-    
-  }
-}
+export function buildChords(synthTexture) {
+ synth = new Tone.PolySynth(4, Tone[synthTexture]).toMaster();
 
-const majorScaleChords = {};
+  class chordObj {
+    constructor() {
+      this.notes = [...arguments];
+    }
+    start() {
+  
+      console.log(this.notes)
+      synth.triggerAttack(this.notes, null);
+      
+    }
+    stop() {
+      synth.triggerRelease(this.notes);
+      
+    }
+  }
+
 
 const CMajor = new chordObj("C3", "E3", "G3");
 const AMinor = new chordObj("A2", "C3", "E3"); //
@@ -596,4 +600,6 @@ majorScaleChords.B.Gb5 = Gb5;
 majorScaleChords.B.Ab5 = Ab5;
 majorScaleChords.B.Bbdim = bbDim;
 
-export default majorScaleChords;
+}
+
+
