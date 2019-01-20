@@ -12,11 +12,11 @@ export function buildChords(synthTexture) {
     start() {
   
       console.log(this.notes)
-      synth.triggerAttack(this.notes, null);
+      synth.triggerAttack(this.notes);
       
     }
     stop() {
-      synth.triggerRelease(this.notes);
+      synth.releaseAll();
       
     }
   }
