@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server",
-    "start-dev": "webpack -w & nodemon server/start.js",
-    "deploy": "scripts/deploy"
+    "start-dev": "webpack -w & nodemon server/start.js"
   },
   "author": "",
   "license": "ISC",
