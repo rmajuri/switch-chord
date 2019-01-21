@@ -84,6 +84,15 @@ h1 {
   color: #ff48c4;
 }
 
+.synth-option-head {
+  font-size: 20px;
+  margin: 0;
+  letter-spacing: .1rem;
+  font-family: Candal, sans-serif;
+  text-shadow: -2px 2px 0px #2bd1fc;
+  color: #ff48c4;
+}
+
 .synth-header {
  font-family: 'Candal', sans-serif;
  color: #ff48c4;
@@ -347,6 +356,75 @@ i.fas:hover {
 }
 
 
+.loader {
+  color: #aaaaaa;
+  font-size: 20px;
+  margin: 100px auto;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-animation: load4 1.3s infinite linear;
+  animation: load4 1.3s infinite linear;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+@-webkit-keyframes load4 {
+  0%,
+  100% {
+    box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+  }
+  12.5% {
+    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  25% {
+    box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  37.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  50% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  62.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+  }
+  75% {
+    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+  }
+  87.5% {
+    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+  }
+}
+@keyframes load4 {
+  0%,
+  100% {
+    box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+  }
+  12.5% {
+    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  25% {
+    box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  37.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  50% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  62.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+  }
+  75% {
+    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+  }
+  87.5% {
+    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+  }
+}
 
 
 
@@ -355,14 +433,14 @@ i.fas:hover {
 
 @media (max-width: 500px) {
   .switch-container{
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     font-size: 10px;
   }
 
   .isPlaying {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     font-size: 10px;
   }
 
@@ -377,20 +455,191 @@ i.fas:hover {
   }
 
   h4 {
-    margin: 20px auto;
+    margin: 15px auto;
     color: #ff48c4;
+    font-size: .5rem;
   }
 
   .rythm-player{
     font-size: 25px;
+    margin: 0px 20px -15px -30px;
+  }
+
+  .synth-header {
+    margin-top: 40px;
   }
 
   .main-switch-frame {
     padding: 15px;
     top: 55px;
-    width: 70%;
+    width: 60%;
   }
 
+  .rythm-button {
+    position: absolute;
+    top: 110px;
+    width: 50px;
+    right: 20px;
+    font-size: .3rem;
+    font-family: 'Major Mono Display', monospace;
+    height: 45px;
+    color:  white;
+    background-color:  rgb(255,186,242, .9);
+    z-index: 1000;
+  }
+
+  .rythm-maker-header {
+    left: -50px;
+    top: 5px;
+    font-size: 25px;
+  }
+
+  .drum-tag {
+    font-family: monospace;
+    letter-spacing: .10rem;
+    width: 60px;
+    margin: 0 0 0 10px;
+    color: #f3ea5f;
+    font-size: .75rem;
+  }
+
+  .drum-checkbox {
+    background-color: rgb(255,186,242, .6);
+    position: absolute;
+    cursor: pointer;
+    border: 1px solid gray;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-radius: 2px;
+  }
+  
+  .drum-checkbox-clicked {
+    background-color: #f3ea5f;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-radius: 2px;
+  }
+
+  .snare-container {
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+  }
+  
+  .kick-container {
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+  }
+  
+  .hat-container {
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+  }
+  
+  .crash-container {
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+  }
+
+  .check-container {
+    position: relative;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0px 3px;
+  }
+
+  .rythm-maker {
+    height: 200px;
+   }
+
+   .change-key-container {
+    width: 45px;
+    height: 45px;
+    left: 5px;
+    top: 220px;
+  }
+
+  .change-synth-container {
+    width: 45px;
+    border: none;
+    position: fixed;
+    left: 10px;
+    top: 330px;
+    z-index: 3000;
+  }
+
+  .chord-text {
+    font-size: 15px;
+  }
+
+  .synth-option-head {
+    font-size: 10px;
+    letter-spacing: 0rem;
+
+  }
+
+  i.fas {
+    font-size: 2em;
+  }
+
+
+.synth-option {
+  margin: 5px 0;
+  padding: 2px;
+  font-size: .5rem;
+  box-shadow: .5px .5px 2px #2bd1fc;
+}
+
+.time-button-container {
+  display: flex;
+  margin: 25px 0 0 25px ;
+}
+
+.rythm-maker-header {
+  font-family: 'Mr Dafoe', cursive;
+  position: absolute;
+  left: -55px;
+  top: -20px;
+  z-index: 100;
+  font-size: 25px;
+  margin: 0;
+  color: #EB219B;
+  -webkit-text-fill-color: rgba(253, 90, 250, 1);
+  text-shadow: -2px -2px 0 #FFBAF2;
+  -webkit-filter: drop-shadow(3px 3px 1px #441F62);
+  -webkit-transform: skew(-5deg,-5deg);
+  font-weight: normal;
+}
+
+.bpm-label {
+  font-family: monospace;
+  font-size: .6rem;
+}
+
+.bpm-input {
+  font-family: monospace;
+  font-size: .6rem;
+  box-shadow: 2px 2px 4px #2bd1fc;
+}
+
+.time-count-button {
+  font-size: .6rem;
+  padding: 2px;
+  height: 15px;
+  margin: 0 0 0 15px;
+  font-family: monospace;
+  box-shadow: 2px 2px 4px #2bd1fc;
+}
+
+  
 }
 
 

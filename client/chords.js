@@ -4,23 +4,23 @@ let synth
 export const majorScaleChords = {};
 
 export function buildChords(synthTexture) {
- synth = new Tone.PolySynth(4, Tone[synthTexture]).toMaster();
+  synth = new Tone.PolySynth(4, Tone[synthTexture]).toMaster();
 
   class chordObj {
     constructor() {
       this.notes = [...arguments];
+      
     }
     start() {
-      console.log(this.notes)
-      this.notes.forEach(note => {
-        synth.triggerAttack(note)
-      })
+  
+      synth.triggerAttack(this.notes)
+
       
     }
     stop() {
-      this.notes.forEach(note => {
-        synth.triggerRelease(note)
-      })
+
+      synth.releaseAll()
+
       
     }
   }

@@ -4,7 +4,7 @@ const ChangeSynthTexture = props => {
   const { changeTexture } = props;
   return (
     <div className="change-synth-container">
-      <h3 className="chord-text">Synth Texture</h3>
+      <h3 className="synth-option-head">Synth Texture</h3>
       <button style={{marginTop: '20px'}} className="synth-option" onClick={() => changeTexture("Synth")}>
         Synth
       </button>

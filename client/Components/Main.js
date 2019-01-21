@@ -265,7 +265,7 @@ export default class Switches extends React.Component {
           }
         </div>
       </div>
-      </div> : null
+      </div> : <div className="loader" />
     )
   }
 }
