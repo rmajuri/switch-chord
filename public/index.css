@@ -320,7 +320,7 @@ i.fas:hover {
 
 .time-button-container {
   display: flex;
-  margin: 20px 0 0 665px;
+  margin: 20px 0 0 595px;
 }
 
 .time-count-button {
@@ -332,6 +332,26 @@ i.fas:hover {
   box-shadow: 5px 5px 8px #2bd1fc;
   font-family: monospace;
 }
+
+.bpm-label {
+  font-family: monospace;
+  margin: 5px 10px 0 0;
+}
+
+.bpm-input {
+  background-color:  rgb(243,234,95);
+  margin: 0;
+  font-family: monospace;
+  box-shadow: 5px 5px 8px #2bd1fc;
+  width: 35px;
+}
+
+
+
+
+
+
+
 
 @media (max-width: 500px) {
   .switch-container{

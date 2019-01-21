@@ -36,6 +36,7 @@ export default class Switches extends React.Component {
     this.togglePlayer = this.togglePlayer.bind(this)
     this.changeKeyHandler = this.changeKeyHandler.bind(this)
     this.changeTexture = this.changeTexture.bind(this)
+    this.changeBpm = this.changeBpm.bind(this)
   }
 
   componentDidMount() {
@@ -179,7 +180,6 @@ export default class Switches extends React.Component {
       }
       index++;
     }
-
       this.setState({rhythmPlayerStarted: true})
       Tone.Transport.scheduleRepeat(repeat, `${count}n`);
       Tone.Transport.start()
@@ -189,6 +189,10 @@ export default class Switches extends React.Component {
     Tone.Transport.stop()
     Tone.Transport.cancel()
     Tone.Transport.clear()
+  }
+
+  changeBpm(bpm) {
+      Tone.Transport.bpm.value = bpm
   }
 
   changeKeyHandler(direction) {
@@ -243,6 +247,7 @@ export default class Switches extends React.Component {
       /> :
       <RythmMaker startSequencer={this.startSequencer}
       stopSequencer={this.stopSequencer}
+      changeBpm={this.changeBpm}
       />
       }
       <ChangeKey displayKey={this.state.currentKey} changeKey={this.changeKeyHandler} />

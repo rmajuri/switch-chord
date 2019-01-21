@@ -4,31 +4,31 @@ class RythmMaker extends Component {
   constructor() {
     super();
     this.state = {
-      timeCount: null
-    }
+      timeCount: null,
+      bpm: 120
+    };
     this.toggleCheckedColor = this.toggleCheckedColor.bind(this);
     this.changeTimeCount = this.changeTimeCount.bind(this);
+    this.handleBpmChange = this.handleBpmChange.bind(this);
   }
 
   componentDidMount() {
-    this.setState({timeCount: 8})
-    this.props.startSequencer(8)
+    this.setState({ timeCount: 8 });
+    this.props.startSequencer(8);
   }
 
   componentWillUnmount() {
-    this.props.stopSequencer()
+    this.props.stopSequencer();
   }
 
   changeTimeCount(count) {
     if (count !== this.state.timeCount) {
-      this.props.stopSequencer()
-      this.setState({timeCount: count})
+      this.props.stopSequencer();
+      this.setState({ timeCount: count });
 
-      this.props.startSequencer(count)
+      this.props.startSequencer(count);
     }
   }
-
-  
 
   toggleCheckedColor(targetedInput) {
     const clickedDrum = document.querySelector(`#${targetedInput}`);
@@ -37,6 +37,12 @@ class RythmMaker extends Component {
     } else {
       clickedDrum.className = "drum-checkbox-clicked";
     }
+  }
+
+  handleBpmChange(event) {
+    const bpm = event.target.value;
+    this.props.changeBpm(bpm);
+    this.setState({ bpm: bpm });
   }
 
   render() {
@@ -116,9 +122,30 @@ class RythmMaker extends Component {
     return (
       <div className="rythm-maker">
         <h1 className="rythm-maker-header">Rythm Maker</h1>
-        <div className='time-button-container'>
-        <button className='time-count-button' onClick={() => this.changeTimeCount(8)}>4/4</button>
-        <button className='time-count-button' onClick={() => this.changeTimeCount(6)}>6/8</button>
+        <div className="time-button-container">
+          <label className='bpm-label'>
+            BPM  
+          </label>
+            <input
+              className="bpm-input"
+              onChange={() => this.handleBpmChange(event)}
+              type="number"
+              min="0"
+              step="1"
+              value={this.state.bpm}
+            />
+          <button
+            className="time-count-button"
+            onClick={() => this.changeTimeCount(8)}
+          >
+            4/4
+          </button>
+          <button
+            className="time-count-button"
+            onClick={() => this.changeTimeCount(6)}
+          >
+            6/8
+          </button>
         </div>
         <div className="kick-container">
           <p className="drum-tag">Kick</p>
