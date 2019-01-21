@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server",
     "start-dev": "webpack -w & nodemon server/start.js",
-    "deploy": "script/deploy"
+    "heroku-postbuild": "webpack -p"
   },
   "author": "",
   "license": "ISC",
